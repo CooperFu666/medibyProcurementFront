@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>待办事宜</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<link rel="stylesheet" href="../css/commn.css">
+		<link rel="stylesheet" href="../css/todo.css">
+	</head>
+
+	<body>
+		<div id="header"></div>
+		<div id="nav"></div>
+		<div class="todo">
+			<div id="bottom_box">
+				<h2>待办事宜</h2>
+				<table class="project_table" width="100%">
+					<tr>
+						<th width="35%">项目名称</th>
+						<th>优先级</th>
+						<th>时间</th>
+						<th>操作</th>
+					</tr>
+
+					<!--隐藏没有记录时显示部分-->
+					<!--<tr class="none_todo_box">-->
+						<!--<td colspan="4">-->
+							<!--<div class="none_todo">-->
+								<!--<img src="../images/none.gif" alt="">-->
+								<!--<h2>没有待办的事宜...</h2>-->
+							<!--</div>-->
+						<!--</td>-->
+					<!--</tr>-->
+
+					<!--<tr>-->
+						<!--<td>-->
+							<!--<img src="../images/project.gif" alt="">-->
+							<!--<span>日本奥林巴斯采购计划</span>-->
+							<!--<span>（项目编号007）</span>-->
+						<!--</td>-->
+						<!--<td>-->
+							<!--<img src="../images/height.gif" alt="">-->
+							<!--<span>高</span>-->
+						<!--</td>-->
+						<!--<td>-->
+							<!--2018年5月10日 23:37:06-->
+						<!--</td>-->
+						<!--<td>-->
+							<!--<button>处理</button>-->
+						<!--</td>-->
+
+					<!--</tr>-->
+
+				</table>
+				<div class="page">
+					<p>总计<span  class="totalRecord"></span> 个记录 分为 <span  class="pageNum"></span> 页 ，每页<span  class="pageSize">30</span>个记录</p>
+					<div class="check_page">
+						<div>
+							<button class="pre_page">上一页</button>
+							<button class="next_page">下一页</button>
+							<div class="write_page">
+								<span style="display: inline-block;margin-right: 13px">共<span  class="pageNum"></span>页</span>
+								<span>跳转到</span>
+								<input type="text"  maxlength="4" class="write_number">
+								<span>页</span>
+								<button class="sure_local">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+        <div id="changePassword"></div>
+		<div id="footer"></div>
+		<script src="../plugins/jquery.js"></script>
+		<script src="../js/todo.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/plug-in.js"></script>
+		<script src="../js/config/config.js"></script>
+		<script type="text/javascript">
+            //paga
+            var paga = 1;
+            //获取用户名
+            var userId = $.cookie('userId');
+            //获取资源令牌
+            var userToken = $.cookie('userToken');
+//			封装拉起数据
+            function getData(pageNumber) {
+                console.log(pageNumber)
+                $.ajax({
+                    url: dataUrl,
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        api: "index.toDo", //接口名
+                        apiVersion: "v1", //接口版本
+                        page:pageNumber,
+                        userId:userId,
+                        userToken: userToken //资源令牌
+                    },
+                    success: function(data) {
+
+                        var num = data.data.list.length //表格所有行数(所有记录数)
+                        $('.pageNum').text(data.data.pageNum)
+                        $('.totalRecord').text(data.data.totalRecord)
+                        $('.pageSize').text(data.data.pageSize)
+
+                        var html1 = '' //内容
+                        for(var i = 0; i < num; i++) {
+                            html1 += '<tr>' +
+                                '<td>' +
+                                '<img src="../images/project.gif" alt="">' +
+                                '<span class="Handle" procurementId ='+data.data.list[i].procurementId+' status ='+data.data.list[i].status+'>' + data.data.list[i].str + '</span>' +
+                                '</td>' +
+                                '<td>' +
+                                '<span>高</span>' +
+                                '</td>' +
+                                '<td>' + data.data.list[i].time +
+                                '</td>' +
+                                '<td>' +
+                                '<button  class="Handle" procurementId ='+data.data.list[i].procurementId+' status ='+data.data.list[i].status+'>处理</button>' +
+                                '</td>' +
+                                '</tr>'
+                        }
+                        console.log(data.data)
+                        if(data.data.list.length == 0) {
+                        	$.Pop('已经是最后一页',{BoxBg:false},'alert')
+                        } else {
+                            $(".project_table").html('<tr>' +
+                                '<th width="35%">项目名称</th>' +
+                                '<th>优先级</th>' +
+                                '<th>时间</th>' +
+                                '<th>操作</th>' +
+                                html1)
+                        }
+
+                    },
+                    error: function(data) {
+                        console.log("失败")
+                    }
+                })
+            }
+			$(function() {
+				$(document).ready(function() {
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							api: "index.toDo", //接口名
+							apiVersion: "v1", //接口版本
+							page: paga, //第几页
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						success: function(data) {
+							console.log(data.data)
+							var num = data.data.list.length //表格所有行数(所有记录数)
+                            $('.pageNum').text(data.data.pageNum)
+                            $('.totalRecord').text(data.data.totalRecord)
+                            $('.pageSize').text(data.data.pageSize)
+							var html1 = '' //内容
+                            if(data.data.pageNum ==1){
+                                $('.check_page').css({'display':'none'})
+                            }
+							for(var i = 0; i < num; i++) {
+								html1 += '<tr>' +
+									'<td>' +
+									'<img src="../images/project.gif" alt="">' +
+									'<span  class="Handle" procurementId ='+data.data.list[i].procurementId+' status ='+data.data.list[i].status+'>' + data.data.list[i].str + '</span>' +
+									'</td>' +
+									'<td>' +
+									'<span>高</span>' +
+									'  </td>' +
+									'  <td>' + data.data.list[i].time +
+									' </td>' +
+									' <td>' +
+									' <button class="Handle" procurementId ='+data.data.list[i].procurementId+' status ='+data.data.list[i].status+'>处理</button>' +
+									' </td>' +
+									'  </tr>'
+							}
+
+							if(data.data.list.length == 0) {
+                                $('.check_page').css({'display':'none'})
+								$(".project_table").html('<tr>' +
+									'     <th width="35%">项目名称</th>' +
+									'   <th>优先级</th>' +
+									'    <th>时间</th>' +
+									'     <th>操作</th>' +
+									'   </tr>' + '<tr class="none_todo_box">' +
+									'<td colspan="4">' +
+									'<div class="none_todo">' +
+									'<img src="../images/none.gif" alt="">' +
+									' <h2>没有待办的事宜...</h2>' +
+									' </div>' +
+									'   </td>' +
+									'  </tr>')
+							} else {
+								$(".project_table").html('<tr>' +
+									'     <th width="35%">项目名称</th>' +
+									'   <th>优先级</th>' +
+									'    <th>时间</th>' +
+									'     <th>操作</th>' +
+									html1)
+							}
+
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					})
+				});
+			})
+
+
+            $('body').on('click','.pre_page',function () {
+                if(paga>1){
+                    paga-=1;
+                    getData(paga)
+                    $('.next_page').removeClass('active')
+                }
+            });
+            $('body').on('click','.next_page',function () {
+                var pageNum = parseInt($('.pageNum').eq(0).text());//获取总页数
+                paga+=1;
+                if(paga == pageNum){
+                    $('.next_page').addClass('active')//控制下一页显示
+                }
+                getData(paga)
+            })
+            $('body').on('click','.sure_local',function () {
+                var pageNum = parseInt($('.pageNum').eq(0).text());//获取总页数
+                paga = parseInt($('.write_number').val());//获取输入页数
+                if(paga == 0){
+                    paga = 1//控制输入0
+                }
+                if(paga>pageNum){
+                    paga = pageNum//控制输入跳转
+                }
+                if(paga == pageNum){
+                    $('.next_page').addClass('active')//控制下一页显示
+                }
+                getData(paga)
+            })
+
+
+
+//            点击处理后跳转
+            $('body').on('click','.Handle',function () {
+                var procurementId = $(this).attr('procurementId');
+                var status = $(this).attr('status');
+                var address;
+                if(status == 0){
+                    address = './demandManagement.html'
+                }else if(status == 1){
+                    address = './researchReport.html'
+                }else if(status == 2){
+                    address = './fixAPrice.html'
+                }else if(status == 3){
+                    address = './toPurchase.html'
+                }else if(status == 4){
+                    address = './PurchaseReport.html'
+                }else if(status == 5){
+//                    address = './toContinue.html'
+                }else if(status == 6){
+                    address = './ProjectDetails.html'
+                }else if(status == 7){
+                    address = './ProjectDetails.html'
+                }
+                window.location.href = address+'?id='+status+'&procurementId='+procurementId;
+            })
+		</script>
+	</body>
+
+</html>

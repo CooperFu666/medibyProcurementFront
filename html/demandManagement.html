@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>提交采购申请</title>
+		<!--媒体查询器-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<!--element 样式-->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="../css/commn.css">
+		<link rel="stylesheet" href="../css/demandManagement.css">
+	</head>
+
+	<body>
+		<div id="header"></div>
+		<div id="nav"></div>
+		<div class="demandManagement">
+			<div class="boxone">
+				<div>
+					<h4>项目进度</h4>
+					<table width="60%" style="text-align: center;margin: auto">
+						<tr>
+							<td>
+								<img src="../images/yellowAirport.jpg" alt="">
+								<h5>提交采购订单</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/clock.jpg" alt="">
+								<h5>调研</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/money.jpg" alt="">
+								<h5>定价</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/cup.jpg" alt="">
+								<h5>采购</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/files.jpg" alt="">
+								<h5>归档</h5>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<!--第二个表格-->
+				<div style="margin-top: 20px; height: 375px;">
+					<div class="two-box">
+						<h4>采购概况</h4>
+						<div class="all-input">
+							<div>
+								<img src="../images/Purchase .gif" alt="" style="margin-left: 0">
+								<h5>采购项目名称</h5>
+								<input type="text" maxlength="100" class="project_name itemName">
+							</div>
+
+							<div>
+								<img src="../images/num.gif" alt="">
+								<h5>采购项目编号</h5>
+								<div class="input1 itemNumber" style="height:22px;float: left;width: 10%;"></div>
+
+								<img class="over_time" src="../images/clock.gif" alt="" style="margin-left: 3.1%">
+								<h5 class="over_time">采购截止时间</h5>
+								<div class="app">
+									<template>
+										<div class="block">
+											<el-date-picker v-model="value1" type="date" style="width: 100%;" placeholder="选择日期">
+											</el-date-picker>
+										</div>
+									</template>
+								</div>
+
+								<h5 style="float: left">不限时间</h5>
+								<div class="switch">
+									<p class="open_off"></p>
+								</div>
+
+								<img src="../images/pople.gif" alt="" style="margin-left: 6.2%">
+								<h5 style="width: 5%">项目负责人</h5>
+								<select class="admin">
+
+								</select>
+
+								<img src="../images/priority.jpg" alt="" style="margin-left: 6.2%">
+								<h5 style="width: 5%">优先级</h5>
+								<select class="pri">
+									<option value="1">高</option>
+									<option value="2">中</option>
+									<option value="3">低</option>
+								</select>
+
+							</div>
+							<div>
+								<h4 class="Remarks">采购原由/备注</h4>
+								<textarea rows="10" cols="20" class="textarea" maxlength="5000"></textarea>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div style="padding: 0 20px 0 20px">
+				<div class="three-box">
+					<h4>采购明细</h4>
+					<table class="detail">
+						<tr>
+							<th width="10%">型号</th>
+							<th width="20%">品牌</th>
+							<th width="15%">数量</th>
+							<th width="10%">产品名称</th>
+							<th width="10%">英文名称</th>
+							<th width="10%">规格/包装</th>
+							<th width="10%">操作</th>
+						</tr>
+						<!--<tr class="Select isSHow">
+							<td width="10%">
+								<input type="text" maxlength="20" class="itemModel">
+							</td>
+
+							<td width="20%" class="itemBrand">
+								<select class="sel_itemBrand">
+									<option value="爱博">爱博</option>
+									<option value="强生">强生</option>
+									<option value="史赛克">史赛克</option>
+									<option value="史丹利">史丹利</option>
+								</select>
+								<td width="15%" class="num">
+									<input type="text" maxlength="20" class="selNuber" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')">
+								</td>
+								<td width="10%" class="itemChinaName"></td>
+								<td width="10%" class="itemEnglishName"></td>
+								<td width="10%" class="itemUnit"></td>
+								<td width="10%" class="operation">
+									<img src="../images/delete.gif" alt="" onclick="del(this)">
+								</td>
+						</tr>-->
+						<table class="commod">
+
+						</table>
+					</table>
+					<div class="add">
+						<span>+添加明细</span>
+					</div>
+				</div>
+			</div>
+			<div class="Submission">
+				<div>
+					<button class="submit survey">开始调研</button>
+					<button class="keep">保存</button>
+
+					<button class="calloff">取消</button>
+				</div>
+			</div>
+			<div id="myspin"></div>
+		</div>
+        <div id="change_password"></div>
+		<div id="footer"></div>
+		<!--弹出框-->
+		<div class="bg_color1">
+			<div class="alert_box">
+				<h2>开始调研</h2>
+				<div class="alert_box_content">
+					<div class="scope_pople">
+						<h3>请选择调研范围及人员</h3>
+						<div class="check_scope">
+							<h5>调研范围：</h5>
+							<select class="scope">
+								<option value="2">全球</option>
+								<option value="1">国外</option>
+								<option value="0">国内</option>
+							</select>
+							<h5>基础信息填写：</h5>
+							<select class="base">
+								<option value="赵信">赵信</option>
+								<option value="蛮子">蛮子</option>
+								<option value="易">易</option>
+								<option value="艾希">艾希</option>
+							</select>
+						</div>
+					</div>
+					<div id="domestic" class="pople_number">
+						<h3>调研人数</h3>
+						<div class="check_scope">
+							<div style="height: 54px">
+								<h5>国内：</h5>
+								<select class="research_nuber">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div style="overflow: hidden">
+								<h5>调研执行：</h5>
+								<div class="check_perform">
+									<div class="executor">
+										<select>
+											<option value="唤雨师">唤雨师</option>
+											<option value="唤雨师">唤雨师</option>
+											<option value="唤雨师">唤雨师</option>
+										</select>
+										<span class="circle">
+                                    		<span>1</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="foreign" class="pople_number">
+						<div class="check_scope">
+							<div class="foreign" style="height: 54px">
+								<h5>国外：</h5>
+								<select class="foreign_select">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div style="overflow: hidden">
+								<h5>调研执行：</h5>
+								<div class="domestic">
+									<div class="executor">
+										<select>
+											<option value="唤雨师">唤雨师</option>
+											<option value="唤雨师">唤雨师</option>
+											<option value="唤雨师">唤雨师</option>
+										</select>
+										<span class="circle">
+                                    		<span>1</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="check_price">
+						<h5>定价执行者：</h5>
+						<select class="pricingAction">
+							<option value="1">叶塞</option>
+						</select>
+						<h5>采购量建议者：</h5>
+						<select class="suggestAction">
+							<option value="2">叶朝安</option>
+						</select>
+					</div>
+					<div class="click_btn">
+						<div class="btn_box_b">
+							<button class="login">进入调研</button>
+							<button class="cancel">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--提交成功后的弹出框-->
+		<div class="bg_notice">
+			<div class="alert_notice">
+				<h2>欢迎登陆</h2>
+				<div class="show">
+					<div>
+						<img src="../images/alert.gif" alt="" style="margin-left: 7px">
+					</div>
+					<div class="prompt">
+						<h3>温馨提示</h3>
+						<p>已经成功提交了哦~</p>
+					</div>
+					<button class="sure">确定</button>
+				</div>
+			</div>
+		</div>
+		<!--取消二次确认弹窗-->
+		<div class="cancel_alert">
+			<div class="cancel_alert_box">
+				<p>"是否不保存数据，取消并返回"</p>
+				<button class="cancel_alert_box_yes" style="margin-left: 154px;">是的</button>
+				<button class="cancel_alert_box_no">算了</button>
+			</div>
+		</div>
+		
+		<script src="../plugins/jquery.js"></script>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<!-- 引入组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<script src="../js/demandManagement.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/plug-in.js"></script>
+		<script src="../js/config/config.js"></script>
+		<script src="https://cdn.bootcss.com/spin.js/2.3.2/spin.min.js"></script>
+		<script>
+			var opts = {
+			    lines: 10, // 花瓣数目
+			    length: 8, // 花瓣长度
+			    width: 4, // 花瓣宽度
+			    radius: 10, // 花瓣距中心半径
+			    corners: 1, // 花瓣圆滑度 (0-1)
+			    rotate: 0, // 花瓣旋转角度
+			    direction: 1, // 花瓣旋转方向 1: 顺时针, -1: 逆时针
+			    color: '#5882FA', // 花瓣颜色
+			    speed: 1, // 花瓣旋转速度
+			    trail: 60, // 花瓣旋转时的拖影(百分比)
+			    shadow: false, // 花瓣是否显示阴影
+			    hwaccel: false, //spinner 是否启用硬件加速及高速旋转
+			    className: 'spinner', // spinner css 样式名称
+			    zIndex: 2e9, // spinner的z轴 (默认是2000000000)
+			    top: '50%', // spinner 相对父容器Top定位 单位 px
+			    left: '50%'// spinner 相对父容器Left定位 单位 px
+			};
+			var spinner = new Spinner(opts);
+//			$(function() {
+				//获取procurementId
+				var PoId = window.location.href.split("&")[1];
+				var PoIds = PoId ? PoId.split("=")[1] : "";
+				var Gethtml = '';
+				
+				//生成项目编号
+				$(document).ready(function() {
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							api: "generate.code", //接口名
+							apiVersion: "v1", //接口版本
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						success: function(data) {
+							console.log(data)
+							$(".itemNumber").text(data.data.procurementItemNumber);
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					})
+				});
+
+				//获取项目负责人列表
+				$(document).ready(function() {
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							action: 1,
+							api: "common.getUserList", //接口名
+							apiVersion: "v1", //接口版本
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						success: function(data) {
+							console.log(data)
+							var html = '';
+							var html1 = '<select class="admin"></select>'
+							for(var i = 0; i < data.data.length; i++) {
+								html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+							}
+							$(".admin").html(html1 + html)
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					})
+				});
+
+				//根据型号获取产品详情
+				$('body').on('blur', '.itemModel', function() {
+					var that = $(this);
+					//获取型号
+					var itemModel = that.val();
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						async :true,
+						data: {
+							api: "index.getCommodityInfo", //接口名
+							apiVersion: "v1", //接口版本
+							modelName: itemModel, //型号
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						beforeSend:function () {
+		                    $("#myspin").text("");
+		                    var target = $("#myspin").get(0);
+		                    spinner.spin(target);//显示loading图标
+		               	},
+						success: function(data) {
+							setTimeout(function () {//ajax请求成功0.3秒以后，关闭loading图标
+		                        //ajax处理之后，关闭spinner
+		                        spinner.spin();
+		                    },100);
+							console.log(data)
+							if(data.data != "") {
+								that.parent().parent(".Select").find(".itemBrand option:selected").text(data.data.brandName); //品牌名
+								that.parent().parent(".Select").find(".itemChinaName").text(data.data.commodityName); //商品名
+								that.parent().parent(".Select").find(".itemEnglishName").text(data.data.commodityNameEnglish); //商品名（英文）
+								that.parent().parent(".Select").find(".itemUnit").text(data.data.unit); //规格
+								var html = '';
+								html += "<option id='" + data.data.brandId + "'>" + data.data.brandName + "</option>"
+								that.parent().parent(".Select").find(".itemBrand select").html(html)
+							} else {
+								that.parent().parent(".Select").find(".itemBrand option:selected").text("请选择"); //品牌名
+								that.parent().parent(".Select").find(".itemChinaName").text(""); //商品名
+								that.parent().parent(".Select").find(".itemEnglishName").text(""); //商品名（英文）
+								that.parent().parent(".Select").find(".itemUnit").text(""); //规格
+								
+								that.parent().parent(".Select").find(".itemBrand select").html(Gethtml)
+							}
+
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					});
+				});
+
+				function _add() {
+					number++
+					if(number <= 100) {
+						$(".commod").append('<tr class="Select">' +
+							'<td width="10%" >' +
+							'<input type="text" maxlength="20" class="itemModel">' +
+							'</td>' +
+							'<td width="20%" class="itemBrand">' +
+							'<select class="sel_itemBrand">' +
+							'<option>请选择</option>' +
+							'</select>' +
+							'<td width="15%" class="num">' +
+							'<input type="text" maxlength="20" class="selNuber" onkeyup="this.value=this.value.replace(/[^0-9]/g, \'\')">' +
+							'</td>' +
+							'<td width="10%" class="itemChinaName"></td>' +
+							'<td width="10%" class="itemEnglishName"></td>' +
+							'<td width="10%" class="itemUnit"></td>' +
+							'<td width="10%" class="operation">' +
+							'<img src="../images/delete.gif" alt="" onclick="del(this)">' +
+							'</td>' +
+							'</tr>');
+					};
+					
+				}
+
+				
+				
+				$(document).ready(function(){
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							api: "index.getBrandList", //接口名
+							apiVersion: "v1", //接口版本
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						success: function(data) {
+							console.log(data)
+							Gethtml += "<option>请选择</option>"
+							for(var i = 0; i < data.data.length; i++) {
+								Gethtml += "<option id='" + data.data[i].brandId + "'>" + data.data[i].brandName + "</option>"
+							}
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					});	
+				})
+
+				if($.session.get('key') == "null" || $.session.get('key') == "2") {
+					window.onload = function() {
+						_add();
+					}
+				}
+
+				//添加明细
+				$('body').on('click', '.add', function() {
+					_add();
+				});
+
+				//保存申请
+				$(".keep").click(function() {
+					//获取采购项目名称
+					var itemName = $(".itemName").val();
+					//采购项目编号
+					var itemNumber = $(".itemNumber").text();
+					//获取采购截止时间
+					var itemTime = $(".el-input__inner").val();
+					//获取项目负责人
+					var itemAdmin = $(".admin option:selected").attr("id");
+					//获取优先级
+					var pri = $(".pri option:selected").val();
+					//获取采购原由/备注
+					var textarea = $(".textarea").val();
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					//获取型号
+					var itemModel = $(".itemModel").val();
+					//获取品牌名
+					var itemBrand = $(".itemBrand option:selected").text();
+					//获取采购数量
+					var selNuber = $(".selNuber").val();
+					//获取商品名称
+					var itemChinaName = $(".itemChinaName").text();
+					//获取商品名称（英文）
+					var itemEnglishName = $(".itemEnglishName").text();
+					//获取规格
+					var itemUnit = $(".itemUnit").text();
+					var procurementId = $(".survey").data("procurementId");
+					var pro;
+
+					if(procurementId != undefined) {
+						pro = procurementId
+					} else {
+						pro = PoIds
+					}
+					var jsonStr = "[";
+					for(var i = 0; i < $(".Select").length; i++) {
+						var itemModel = $(".Select:eq(" + i + ")").children().eq(0).find("input").val();
+						jsonStr += "{\"modelTitle\":\"" + itemModel + "\","; //型号 
+						var itemBrand = $(".Select:eq(" + i + ")").children().eq(1).find(".sel_itemBrand option:selected").text();
+						jsonStr += "\"brandTitle\":\"" + itemBrand + "\","; //品牌
+						var selNuber = $(".Select:eq(" + i + ")").children().eq(2).find("input").val();
+						jsonStr += "\"number\":\"" + selNuber + "\","; //数量
+						var itemChinaName = $(".Select:eq(" + i + ")").children().eq(3).text();
+						jsonStr += "\"commodityTitle\":\"" + itemChinaName + "\","; //产品名称
+						var itemEnglishName = $(".Select:eq(" + i + ")").children().eq(4).text();
+						jsonStr += "\"commodityTitleEnglish\":\"" + itemEnglishName + "\","; //英文名称
+						if(itemChinaName == "") {
+							isProductLibrary = 0
+						} else {
+							isProductLibrary = 1
+						};
+						jsonStr += "\"isProductLibrary\":\"" + isProductLibrary + "\","; //是否为产品库产品，0不是1是
+						var itemUnit = $(".Select:eq(" + i + ")").children().eq(5).text();
+						jsonStr += "\"unit\":\"" + itemUnit + "\"},"; //规格/包装
+					}
+					jsonStr = jsonStr.substring(0, jsonStr.length - 1) + "]";
+					console.log(jsonStr)
+					var purchaseList = JSON.parse(jsonStr);
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							api: "run.application", //接口名
+							apiVersion: "v1", //接口版本
+							purchaseTitle: itemName, //采购名称
+							procurementItemNumber: itemNumber, //采购项目编号
+							purchaseEndTime: itemTime, //采购截止时间，传时间戳
+							purchasePrincipal: itemAdmin, //采购项目负责人id，填“获取项目负责人”接口中的userId
+							level: pri, //优先级，1高2中3低
+							procurementId: pro,
+							purchaseRemark: textarea, //原由/备注
+							userId: userId, //用户名
+							userToken: userToken, //资源令牌
+							purchaseList: JSON.stringify(purchaseList)
+						},
+						success: function(data) {
+							console.log(data)
+							if(data.message == "数量不能为空") {
+								data.message = "内容不能为空"
+							}
+							if(data.code == 200) {
+								window.location.href = "workbench.html"
+							} else {
+								$.Pop(data.message,{BoxBg:false},'alert')
+							}
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					})
+				});
+
+				//开始调研
+				$(".survey").click(function() {
+					//获取采购项目名称
+					var itemName = $(".itemName").val();
+					//采购项目编号
+					var itemNumber = $(".itemNumber").text();
+					//获取采购截止时间
+					var itemTime = $(".el-input__inner").val();
+					//获取项目负责人
+					var itemAdmin = $(".admin option:selected").attr("id");
+					//获取优先级
+					var pri = $(".pri option:selected").val();
+					//获取采购原由/备注
+					var textarea = $(".textarea").val();
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					//获取型号
+					var itemModel = $(".itemModel").val();
+					//获取品牌名
+					var itemBrand = $(".itemBrand option:selected").text();
+					//获取采购数量
+					var selNuber = $(".selNuber").val();
+					//获取商品名称
+					var itemChinaName = $(".itemChinaName").text();
+					//获取商品名称（英文）
+					var itemEnglishName = $(".itemEnglishName").text();
+					//获取规格
+					var itemUnit = $(".itemUnit").text();
+					var procurementId = $(".survey").data("procurementId");
+					var pro;
+
+					if(procurementId != undefined) {
+						pro = procurementId
+					} else {
+						pro = PoIds
+					}
+					var jsonStr = "[";
+					for(var i = 0; i < $(".Select").length; i++) {
+						var itemModel = $(".Select:eq(" + i + ")").children().eq(0).find("input").val();
+						jsonStr += "{\"modelTitle\":\"" + itemModel + "\","; //型号 
+						var itemBrand = $(".Select:eq(" + i + ")").children().eq(1).find(".sel_itemBrand option:selected").text();
+						jsonStr += "\"brandTitle\":\"" + itemBrand + "\","; //品牌
+						var selNuber = $(".Select:eq(" + i + ")").children().eq(2).find("input").val();
+						jsonStr += "\"number\":\"" + selNuber + "\","; //数量
+						var itemChinaName = $(".Select:eq(" + i + ")").children().eq(3).text();
+						jsonStr += "\"commodityTitle\":\"" + itemChinaName + "\","; //产品名称
+						var itemEnglishName = $(".Select:eq(" + i + ")").children().eq(4).text();
+						jsonStr += "\"commodityTitleEnglish\":\"" + itemEnglishName + "\","; //英文名称
+						if(itemChinaName == "") {
+							isProductLibrary = 0
+						} else {
+							isProductLibrary = 1
+						};
+						jsonStr += "\"isProductLibrary\":\"" + isProductLibrary + "\","; //是否为产品库产品，0不是1是
+						var itemUnit = $(".Select:eq(" + i + ")").children().eq(5).text();
+						jsonStr += "\"unit\":\"" + itemUnit + "\"},"; //规格/包装
+					}
+					jsonStr = jsonStr.substring(0, jsonStr.length - 1) + "]";
+					var purchaseList = JSON.parse(jsonStr);
+
+					for(var i = 0; i < purchaseList.length; i++) {
+						if(purchaseList[i].modelTitle == '' || purchaseList[i].number == '') {
+							$.Pop('品牌、数量不能为空',{BoxBg:false},'alert')
+							return false
+						}
+						if(purchaseList[i].brandTitle == '请选择') {
+							$.Pop('请选择品牌',{BoxBg:false},'alert')
+							return false
+						}
+					}
+
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							api: "run.application", //接口名
+							apiVersion: "v1", //接口版本
+							purchaseTitle: itemName, //采购名称
+							procurementItemNumber: itemNumber, //采购项目编号
+							purchaseEndTime: itemTime, //采购截止时间，传时间戳
+							purchasePrincipal: itemAdmin, //采购项目负责人id，填“获取项目负责人”接口中的userId
+							level: pri, //优先级，1高2中3低
+							procurementId: pro,
+							purchaseRemark: textarea, //原由/备注
+							userId: userId, //用户名
+							userToken: userToken, //资源令牌
+							purchaseList: JSON.stringify(purchaseList)
+						},
+						success: function(data) {
+							console.log(data)
+							if(data.message == "数量不能为空") {
+								data.message = "内容不能为空"
+							}
+							$(".survey").data("procurementId", data.data.procurementId);
+							if(data.code == 200) {
+								$('.bg_color1').css({
+									'display': 'block'
+								});
+								//获取调研执行者列表
+								$.ajax({
+									url: dataUrl,
+									type: "post",
+									dataType: "json",
+									data: {
+										action: 6,
+										api: "common.getUserList", //接口名
+										apiVersion: "v1", //接口版本
+										userId: userId, //用户名
+										userToken: userToken //资源令牌
+									},
+									success: function(data) {
+										console.log(data)
+										// 调研人数选择
+										//国内
+										$('.research_nuber').change(function() {
+											var selectNum = parseInt($(this).val());
+											$('.check_perform').find('.executor').remove();
+											for(var i = 0; i < selectNum; i++) {
+												$('.check_perform').append(
+													'<div class="executor">' +
+													' <select> ' +
+
+													'</select> ' +
+													'<span class="circle"> ' +
+													'<span>' + (i + 1) + '</span> ' +
+													'</span> ' +
+													'</div>'
+												)
+											}
+											var html = '';
+											for(var i = 0; i < data.data.length; i++) {
+												html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+											}
+											$(".check_perform select").html(html)
+										});
+
+										var html = '';
+										for(var i = 0; i < data.data.length; i++) {
+											html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+										}
+										$(".check_perform select").html(html)
+									},
+									error: function(data) {
+										console.log("失败")
+									}
+								});
+								//获取调研执行者列表
+								$.ajax({
+									url: dataUrl,
+									type: "post",
+									dataType: "json",
+									data: {
+										action: 7,
+										api: "common.getUserList", //接口名
+										apiVersion: "v1", //接口版本
+										userId: userId, //用户名
+										userToken: userToken //资源令牌
+									},
+									success: function(data) {
+										console.log(data)
+										// 调研人数选择
+										//国外
+										$('.foreign_select').change(function() {
+											var selectNum = parseInt($(this).val());
+											$('.domestic').find('.executor').remove();
+											for(var i = 0; i < selectNum; i++) {
+												$('.domestic').append(
+													'<div class="executor">' +
+													' <select> ' +
+
+													'</select> ' +
+													'<span class="circle"> ' +
+													'<span>' + (i + 1) + '</span> ' +
+													'</span> ' +
+													'</div>'
+												)
+											}
+											var html = '';
+											for(var i = 0; i < data.data.length; i++) {
+												html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+											}
+											$(".domestic select").html(html)
+										});
+
+										var html = '';
+										for(var i = 0; i < data.data.length; i++) {
+											html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+										}
+										$(".domestic select").html(html)
+									},
+									error: function(data) {
+										console.log("失败")
+									}
+								});
+
+								//获取定价执行者列表
+								$.ajax({
+									url: dataUrl,
+									type: "post",
+									dataType: "json",
+									data: {
+										action: 3,
+										api: "common.getUserList", //接口名
+										apiVersion: "v1", //接口版本
+										userId: userId, //用户名
+										userToken: userToken //资源令牌
+									},
+									success: function(data) {
+										console.log(data)
+										var html = '';
+										for(var i = 0; i < data.data.length; i++) {
+											html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+										}
+										$(".pricingAction").html(html)
+									},
+									error: function(data) {
+										console.log("失败")
+									}
+								});
+
+								//获取采购量建议者列表
+								$.ajax({
+									url: dataUrl,
+									type: "post",
+									dataType: "json",
+									data: {
+										action: 4,
+										api: "common.getUserList", //接口名
+										apiVersion: "v1", //接口版本
+										userId: userId, //用户名
+										userToken: userToken //资源令牌
+									},
+									success: function(data) {
+										console.log(data)
+										var html = '';
+										for(var i = 0; i < data.data.length; i++) {
+											html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+										}
+										$(".suggestAction").html(html)
+									},
+									error: function(data) {
+										console.log("失败")
+									}
+								});
+								//获取填写基础信息用户列表
+								$.ajax({
+									url: dataUrl,
+									type: "post",
+									dataType: "json",
+									data: {
+										action: 8,
+										api: "common.getUserList", //接口名
+										apiVersion: "v1", //接口版本
+										userId: userId, //用户名
+										userToken: userToken //资源令牌
+									},
+									success: function(data) {
+										console.log(data)
+										var html = '';
+										for(var i = 0; i < data.data.length; i++) {
+											html += "<option id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+										}
+										$(".base").html(html)
+									},
+									error: function(data) {
+										console.log("失败")
+									}
+								});
+							} else {
+								$.Pop(data.message,{BoxBg:false},'alert')
+							}
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					});
+
+				});
+
+				//保存调研、定价、采购量建议执行者
+				$(".login").click(function() {
+					//获取采购申请id
+					var procurementId = $(".survey").data("procurementId");
+					var pro;
+
+					if(procurementId != "") {
+						pro = procurementId
+					} else {
+						pro = PoIds
+					}
+					//获取调研范围
+					var scope = $(".scope option:selected").val();
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					//获取基础信息填写者id
+					var base = $(".base option:selected").attr("id");
+					//获取定价执行者
+					var pricingAction = $(".pricingAction option:selected").attr("id");
+					//获取采购量建议者
+					var suggestAction = $(".suggestAction option:selected").attr("id");
+
+					var arr = [];
+					//国内
+					var domesticObj = {};
+					domesticObj.type = 0;
+					domesticObj.userIdLIst = [];
+
+					for(var i = 0; i < $("#domestic .executor").length; i++) {
+						var userIdLIst = $("#domestic .executor:eq(" + i + ")").find("select option:selected").attr("id");
+						domesticObj.userIdLIst.push(userIdLIst)
+					}
+
+					//国外
+					var foreignObj = {};
+					foreignObj.type = 1;
+					foreignObj.userIdLIst = [];
+					for(var i = 0; i < $("#foreign .executor").length; i++) {
+						var userIdLIst = $("#foreign .executor:eq(" + i + ")").find("select option:selected").attr("id");
+						foreignObj.userIdLIst.push(userIdLIst)
+					}
+					if(scope == 0) {
+						arr.push(domesticObj);
+						var nary = arr[0].userIdLIst.sort();
+						console.log(nary)
+						for(var i = 0; i < arr[0].userIdLIst.length; i++) {
+							if(nary[i] == nary[i + 1]) {
+								$.Pop('-国内-调研者不可一致',{BoxBg:false},'alert')
+								break
+							}
+						}
+					} else if(scope == 1) {
+						arr.push(foreignObj);
+						var narys = arr[0].userIdLIst.sort();
+						console.log(narys)
+						for(var i = 0; i < arr[0].userIdLIst.length; i++) {
+							if(narys[i] == narys[i + 1]) {
+								$.Pop('-国外-调研者不可一致',{BoxBg:false},'alert')
+								break
+							}
+						}
+					} else {
+						arr.push(domesticObj);
+						arr.push(foreignObj);
+						var nary = arr[0].userIdLIst.sort();
+						console.log(nary)
+						for(var i = 0; i < arr[0].userIdLIst.length; i++) {
+							if(nary[i] == nary[i + 1]) {
+								$.Pop('-国内-调研者不可一致',{BoxBg:false},'alert')
+								break
+							}
+						}
+						var narys = arr[1].userIdLIst.sort();
+						console.log(narys)
+						for(var i = 0; i < arr[1].userIdLIst.length; i++) {
+							if(narys[i] == narys[i + 1]) {
+								$.Pop('-国外-调研者不可一致',{BoxBg:false},'alert')
+								break
+							}
+						}
+					}
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							api: "run.researchAuth", //接口名
+							apiVersion: "v1", //接口版本
+							baseINfoAction: base, //获取基础信息填写者id
+							pricingAction: pricingAction, //定价执行者
+							procurementId: pro, //采购申请id
+							researchAction: JSON.stringify(arr), //调研执行者
+							suggestAction: suggestAction, //采购量建议者
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						success: function(data) {
+							console.log(procurementId)
+							if(data.code == 200) {
+								$('.bg_color1').css({
+									'display': 'none'
+								});
+								$('.bg_notice').css({
+									'display': 'block'
+								});
+								$(".sure").click(function() {
+									window.location.href = "workbench.html"
+									$.session.clear();
+									$.session.set('key', 'null')
+								})
+							} else {
+//								alert(data.message)
+							}
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					});
+				});
+
+				//取消二次确认弹窗
+				$(".calloff").click(function() {
+					$(".cancel_alert").show();
+					$(".cancel_alert_box_yes").click(function() {
+						window.location.href = "workbench.html";
+					});
+					$(".cancel_alert_box_no").click(function() {
+						$(".cancel_alert").hide();
+					});
+				})
+
+				//清除session
+				$("body").on('click', '.caigou,.gongzuo', function() {
+					$.session.clear();
+					$.session.set('key', 'null')
+				})
+				//判断是否存在session
+				if($.session.get('key') == 1) {
+					$(".isSHow").hide();
+					//读取采购产品
+					//获取用户名
+					var userId = $.cookie('userId');
+					//获取资源令牌
+					var userToken = $.cookie('userToken');
+					var procurementId = $(".survey").data("procurementId");
+					var pro;
+
+					if(procurementId != undefined) {
+						pro = procurementId
+					} else {
+						pro = PoIds
+					}
+
+					console.log(pro)
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							api: "get.purchaseCommodity", //接口名
+							apiVersion: "v1", //接口版本
+							procurementId: pro, //采购申请id
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						success: function(data) {
+							$(".itemName").val(data.data.purchaseTitle); //采购项目名称
+							$(".itemNumber").text(data.data.purchaseItemNumber); //采购项目编号
+							$(".el-input__inner").val(data.data.purchaseEndTime.substring(0, 11)); //采购截止时间
+							$(".admin option:selected").text(data.data.purchasePrincipal); //项目负责人
+							$(".pri option:selected").text(data.data.level); //优先级
+							$(".textarea").val(data.data.purchaseRemark); //采购原由
+							var commodityList = data.data.commodityList; //列表
+							var html = '';
+							for(var i = 0; i < commodityList.length; i++) {
+								var modelTitle = commodityList[i].modelTitle; //型号
+								var brandTitle = commodityList[i].brandTitle; //品牌
+								var applyPurchaseQuantity = commodityList[i].applyPurchaseQuantity; //数量
+								var commodityTitle = commodityList[i].commodityTitle; //产品名
+								var commodityTitleEnglish = commodityList[i].commodityTitleEnglish; //产品英文名
+								var unit = commodityList[i].unit; //规格
+								html += "<tr class='Select'><td width='10%'><input type='text' maxlength='20' class='itemModel' value='" + modelTitle + "'></td><td width='20%' class='itemBrand'><select class='sel_itemBrand'><option id=''>" + brandTitle + "</option></select><td width='15%' class='num'><input type='text' maxlength='20' class='selNuber' value='" + applyPurchaseQuantity + "' onkeyup='this.value=this.value.replace(/[^0-9]/g, \"\")'></td><td width='10%' class='itemChinaName'>" + commodityTitle + "</td><td width='10%' class='itemEnglishName'>" + commodityTitleEnglish + "</td><td width='10%' class='itemUnit'>" + unit + "</td><td width='10%' class='operation'><img src='../images/delete.gif' alt='' onclick='del(this)'></td></tr>"
+							}
+							$(".commod").html(html)
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					})
+				}
+
+//			})
+		</script>
+
+	</body>
+
+</html>

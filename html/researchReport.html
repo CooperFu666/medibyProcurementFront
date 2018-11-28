@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调研报告</title>
+    <!--媒体查询器-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="../css/commn.css">
+    <link rel="stylesheet" href="../css/researchReport.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="nav"></div>
+    <div class="researchReport">
+        <div class="boxone">
+            <div>
+                <h4>项目进度</h4>
+                <table width="60%" style="text-align: center;margin: auto">
+                    <tr>
+                        <td>
+                            <img src="../images/blueAirport.jpg" alt="">
+                            <h5>提交采购订单</h5>
+                        </td>
+                        <td>
+                            <hr>
+                        </td>
+                        <td>
+                            <img src="../images/yellowClock.jpg" alt="">
+                            <h5>调研</h5>
+                        </td>
+                        <td>
+                            <hr>
+                        </td>
+                        <td>
+                            <img src="../images/money.jpg" alt="">
+                            <h5>定价</h5>
+                        </td>
+                        <td>
+                            <hr>
+                        </td>
+                        <td>
+                            <img src="../images/cup.jpg" alt="">
+                            <h5>采购</h5>
+                        </td>
+                        <td>
+                            <hr>
+                        </td>
+                        <td>
+                            <img src="../images/files.jpg" alt="">
+                            <h5>归档</h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!--第二个表格-->
+            <div style="margin-top: 20px; height: 310px;padding:0 20px 20px 19px">
+                <div class="two-box">
+                    <h4>采购概况</h4>
+                    <div class="all-input">
+                        <div>
+
+                        </div>
+                        <img src="../images/Purchase .gif" alt="" style="margin-left: 0">
+                        <h5><a style="float: left;">采购项目名称：</a><span class="purchaseTitle" style="width: 120px;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;float: left;"></span></h5>
+
+                        <img src="../images/num.gif" alt="">
+                        <h5>采购项目编号：<span class="purchaseItemNumber"></span></h5>
+
+                        <img src="../images/clock.gif" alt="" style=" margin: 0.4% 0.6% 0 14%;">
+                        <h5>采购截止时间:<span class="purchaseEndTime"></span></h5>
+
+                        <img src="../images/pople.gif" alt="">
+                        <h5>项目负责人:<span class="purchasePrincipal"></span></h5>
+
+                        <h4 id="Remarks">采购原由/备注</h4>
+                        <div class="meg">
+                            <img src="../images/pople.gif" alt="">
+                            <h5>项目申请人:<span class="procurementSubmitterUser"></span></h5>
+
+                            <img src="../images/book.gif" alt="">
+                            <h5>申请时间：<span class="procurementSubmitterTime"></span></h5>
+
+                            <img src="../images/priority.jpg" alt="">
+                            <h5 style="margin-right: 10px;">优先级：</h5>
+                            <h5 class="priority"></h5>
+                        </div>
+                        <div class="textarea"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--第三个表格-->
+        <div style="padding: 0 20px 0 20px">
+            <div class="three-box">
+                <h4>我的调研报告</h4>
+                <div class="Adopt">
+                    <img src="../images/right.gif" alt="">
+                    <h5>可采纳</h5>
+                </div>
+                <table class="detail detail_A">
+                    <tr>
+                        <th>品牌</th>
+                        <th>型号</th>
+                        <th>中文名</th>
+                        <th>英文名称</th>
+                        <th>规格/包装</th>
+                        <th>注册证</th>
+                        <th>调研报告</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                </table>
+
+                <div class="Adopt">
+                    <img src="../images/left.gif" alt="">
+                    <h5>不采纳</h5>
+                </div>
+                <table class="detail detail_b">
+                    <tr>
+                        <th>品牌</th>
+                        <th>型号</th>
+                        <th>中文名</th>
+                        <th>英文名称</th>
+                        <th>不采购理由</th>
+                        <th>编辑</th>
+                    </tr>
+                    <!--<tr>-->
+                        <!--<td>博威</td>-->
+                        <!--<td>ARC-400</td>-->
+                        <!--<td>-->
+                               <!-- -&#45;&#45;-->
+                        <!--</td>-->
+                        <!--<td>-->
+                               <!-- -&#45;&#45;-->
+                        <!--</td>-->
+                        <!--<td>-->
+                               <!-- -&#45;&#45;-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<img src="../images/open.gif" alt="" class="to_adopt">-->
+                        <!--</td>-->
+                    <!--</tr>-->
+
+                </table>
+            </div>
+        </div>
+        <div class="Submission">
+            <div>
+                <button class="no_perform">不执行该项目</button>
+                <button class="save">保存基础信息</button>
+                <button class="go_home">返回</button>
+            </div>
+        </div>
+        <!--提交调研报告弹出框-->
+        <div class="report_alert">
+            <div class="report_alert_box">
+                <div class="box_title">
+                    <h2>提交调研报告</h2>
+                    <img src="../images/fork.gif" alt="" class="fork">
+                </div>
+                <div class="box_table">
+                    <table class="seen_research" width="100%">
+                        <tr>
+                            <td>
+                                <span class="w_90">品牌</span>
+                                <span class="w_120">型号</span>
+                                <span class="w_150">中文名</span>
+                                <span class="w_108">英文名</span>
+                            </td>
+                            <td>
+                                <span class="w_610">国内价格</span>
+                            </td>
+                            <td>
+                                <span class="w_610">国外价格</span>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 20px solid #f7f7f7;">
+                            <td class="ver_mid ver_bor">
+                                <span class="w_90">博威</span>
+                                <span class="w_120">ARC-400</span>
+                                <span class="w_150">超级无敌帅气电刀</span>
+                                <span class="w_108">Super Fl</span>
+                            </td>
+                            <td class="bar_bor" style="vertical-align:baseline">
+                                <table class="domestic_price"  width="100%">
+                                    <tr class="tr_header">
+                                        <td width="260px">
+                                            <p>供应商</p>
+                                        </td>
+                                        <td>
+                                            <p>含税价</p>
+                                        </td>
+                                        <td>
+                                            <p>不含税价</p>
+                                        </td>
+                                    </tr>
+                                    <tr class="w_610 pad_bot">
+                                        <td  class="inp_box">
+                                            <div style="width: 230px;">
+                                                医加医疗
+                                            </div>
+                                        </td>
+                                        <td class="inp_box">
+                                            <div  style="width: 120px;">
+                                               1000.00
+                                            </div>
+                                        </td>
+                                        <td  class="inp_box">
+                                            <div style="width: 120px;">
+                                               1000.00
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="bar_bor" style="vertical-align:baseline">
+                                <table class="domestic_price"  width="100%">
+                                    <tr class="tr_header">
+                                        <td width="260px">
+                                            <p>供应商</p>
+                                        </td>
+                                        <td>
+                                            <p>含税价</p>
+                                        </td>
+                                        <td>
+                                            <p>不含税价</p>
+                                        </td>
+                                    </tr>
+                                    <tr class="w_610 pad_bot">
+                                        <td  class="inp_box">
+                                            <div style="width: 230px;">
+                                                医加医疗
+                                            </div>
+                                        </td>
+                                        <td class="inp_box">
+                                            <div  style="width: 120px;">
+                                                1000.00
+                                            </div>
+                                        </td>
+                                        <td  class="inp_box">
+                                            <div style="width: 120px;">
+                                                1000.00
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="box_operate">
+
+                </div>
+            </div>
+        </div>
+        <!--填写调研报告弹出框-->
+        <div class="report_alert_write">
+            <div class="report_alert_box">
+                <div class="box_title">
+                    <h2>填写调研报告</h2>
+                    <img src="../images/fork.gif" alt="" class="fork">
+                </div>
+                <div class="box_table">
+                    <form method="post" id="myFrom">
+                        <table width="100%" class="write_table">
+                            <tr>
+                                <td>
+                                    <span class="w_90">品牌</span>
+                                    <span class="w_120">型号</span>
+                                    <span class="w_150">中文名</span>
+                                    <span class="w_108">英文名</span>
+                                </td>
+                                <td>
+                                    <span class="w_610">国内价格</span>
+                                </td>
+                                <td>
+                                    <span class="w_610">国外价格</span>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 20px solid #f7f7f7;">
+                                <td class="ver_mid ver_bor">
+                                    <span class="w_90">博威</span>
+                                    <span class="w_120">ARC-400</span>
+                                    <span class="w_150">超级无敌帅气电刀</span>
+                                    <span class="w_108">Super Fl</span>
+                                </td>
+                                <td class="bar_bor" style="vertical-align:baseline">
+                                    <table class="domestic_price"  width="100%">
+                                        <tr class="tr_header">
+                                            <td width="260px">
+                                                <p>供应商</p>
+                                            </td>
+                                            <td>
+                                                <p>含税价</p>
+                                            </td>
+                                            <td>
+                                                <p>不含税价</p>
+                                            </td>
+                                            <td style="width: 40px">
+                                                <p></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w_610 pad_bot">
+                                            <td  class="inp_box">
+                                                <div style="width: 230px;">
+                                                    <a>单位</a>
+                                                    <input type="text" placeholder="医加医疗" style="width: 230px;">
+                                                </div>
+                                            </td>
+                                            <td class="inp_box">
+                                                <div  style="width: 120px;">
+                                                    <a>价格</a>
+                                                    <input type="text" placeholder="1000.00" style="width: 120px;">
+                                                </div>
+                                            </td>
+                                            <td  class="inp_box">
+                                                <div style="width: 120px;">
+                                                    <a>价格</a>
+                                                    <input type="text" placeholder="1000.00" style="width: 120px;">
+                                                </div>
+                                            </td>
+                                            <td  class="inp_box">
+                                                <div>
+                                                    <img src="../images/Pack.gif" alt="" class="Pack_up">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <button class="box_add">+增加</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="bar_bor" style="vertical-align:baseline">
+                                    <table class="domestic_price"  width="100%">
+                                        <tr class="tr_header">
+                                            <td width="260px">
+                                                <p>供应商</p>
+                                            </td>
+                                            <td>
+                                                <p>含税价</p>
+                                            </td>
+                                            <td>
+                                                <p>不含税价</p>
+                                            </td>
+                                            <td style="width: 40px">
+                                                <p></p>
+                                            </td>
+                                        </tr>
+                                        <tr class="w_610 pad_bot">
+                                            <td  class="inp_box">
+                                                <div style="width: 230px;">
+                                                    <a>单位</a>
+                                                    <input type="text" placeholder="医加医疗" style="width: 230px;">
+                                                </div>
+                                            </td>
+                                            <td class="inp_box">
+                                                <div  style="width: 120px;">
+                                                    <a>价格</a>
+                                                    <input type="text" placeholder="1000.00" style="width: 120px;">
+                                                </div>
+                                            </td>
+                                            <td  class="inp_box">
+                                                <div style="width: 120px;">
+                                                    <a>价格</a>
+                                                    <input type="text" placeholder="1000.00" style="width: 120px;">
+                                                </div>
+                                            </td>
+                                            <td  class="inp_box">
+                                                <div>
+                                                    <img src="../images/Pack.gif" alt="" class="Pack_up">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <button class="box_add">+增加</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="box_operate">
+
+                </div>
+            </div>
+        </div>
+
+        <!--不调研理由弹出框-->
+        <div  class="alert_box">
+            <div class="alert_content">
+                <h2>不调研原因</h2>
+                <textarea rows="10" placeholder="此处填写原因..."></textarea>
+                <div class="btn_box_b">
+                    <button class="sure_withdraw">确定</button>
+                    <button class="no_research_cancel">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <!--成功撤回提示-->
+        <div class="withdraw_box">
+            <div class="alert_content">
+                <h2>提示</h2>
+                <div class="notice_box">
+                    <img src="../images/withdraw.gif" alt="">
+                    <div  class="notice_content">
+                        <h3>温馨提示</h3>
+                        <p>已经撤回调研报告了啦</p>
+                    </div>
+                    <button class="withdraw_notice">确定</button>
+                </div>
+            </div>
+        </div>
+
+        <!--不执行弹出框-->
+        <div class="no_perform_box">
+            <div class="alert_content">
+                <h2>不执行原因</h2>
+                <textarea rows="10" class="noPerform_reason"></textarea>
+                <div class="btn_box_b">
+                    <button class="sure_noPerform">确定</button>
+                    <button class="perform_cancel">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <!--成功提交调研报告-->
+        <div class="successful_submission">
+            <div class="alert_content">
+                <h2>提示</h2>
+                <div class="notice_box">
+                    <img src="../images/successful.gif" alt="">
+                    <div  class="notice_content">
+                        <h3>温馨提示</h3>
+                        <p>已经成功提交调研报告了哦~</p>
+                    </div>
+                    <button class="sure">确定</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div id="change_password"></div>
+    <div id="footer"></div>
+    <script src="../plugins/jquery.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/plug-in.js"></script>
+    <script src="../js/researchReport.js"></script>
+	<script src="../js/config/config.js"></script>
+
+</body>
+</html>

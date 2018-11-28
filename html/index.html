@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工作台</title>
+    <!--媒体查询器-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="../css/commn.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/workbench.css">
+</head>
+<body>
+<div id="header">
+    <div class="myHeader">
+    <ul class="userName">
+        <li class="user">
+            <img src="../images/user.gif" alt="">
+        </li>
+        <li class="userId">
+            <span class="itemuserName"></span>&nbsp(<span class="roleName"></span>)
+            <img src="../images/down.png" alt="">
+            <ul class="two_meau">
+                <li class="Modify_password">
+                    修改密码
+                    <img src="../images/lock.gif" alt="">
+                </li>
+                <li class="logOff">
+                    退出登录
+                    <img src="../images/power.gif" alt="">
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+    <script src="../plugins/jquery.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/plug-in.js"></script>
+    <script>
+        $(".itemuserName").text($.cookie('userName'));
+        $(".roleName").text($.cookie('roleName'));
+        $(".logOff").click(function() {
+            $.cookie("isFirstLogin", null); //是否第一次登录
+            $.cookie("roleName", null); //角色名
+            $.cookie("userId", null); //用户id
+            $.cookie("userName", null); //用户名
+            $.cookie("userToken", null); //资源令牌
+            location.href = "login.html";
+        });
+        var a = $.cookie("userName");
+        var c_start = document.cookie.indexOf("userName=");
+        if(c_start == -1) {
+            window.location.href = "login.html"
+        }
+        if($(".itemuserName").text()=="null"){
+            window.location.href = "login.html"
+        };
+    </script></div>
+<div id="nav">
+    <div class="myNav">
+        <h1 class="logo">
+            <div></div>
+            <a href="javascript:;">医加采购系统</a>
+        </h1>
+        <ul class="navigation">
+            <li onclick="change(this)" class="gongzuo">
+                <a href="./workbench.html" target="index">
+                    <img src="../images/work.gif" alt="">
+                    <h5>我的工作台</h5>
+                </a>
+            </li>
+
+            <li  onclick="change(this)" class="caigou">
+                <a href="./PurchasingApplication.html" target="index">
+                    <img src="../images/apply.gif" alt="">
+                    <h5>我的采购申请</h5>
+                </a>
+            </li>
+
+            <li  onclick="change(this)">
+                <a href="./MyResearchReport.html" target="index">
+                    <img src="../images/research.gif" alt="">
+                    <h5>我的调研报告</h5>
+                </a>
+            </li>
+
+            <li  onclick="change(this)">
+                <a href="./myPurchaseReport.html" target="index">
+                    <img src="../images/procurement.gif" alt="">
+                    <h5>我的采购报告</h5>
+                </a>
+            </li>
+
+            <li  onclick="change(this)">
+                <a href="./todo.html" target="index">
+                    <img src="../images/todo.gif" alt="">
+                    <h5>待办事宜</h5>
+                </a>
+            </li>
+
+            <li  onclick="change(this)">
+                <a href="./newDynamic.html" target="index">
+                    <img src="../images/new.gif" alt="">
+                    <h5>最新动态</h5>
+                </a>
+            </li>
+
+            <li  onclick="change(this)" class="purchaseDoc">
+                <a href="./PurchasingRecords.html" target="index">
+                    <img src="../images/archives.gif" alt="">
+                    <h5>采购档案</h5>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--<script src="../plugins/jquery.js"></script>-->
+    <script src="../js/nav.js"></script>
+    <script src="../js/config/config.js"></script>
+</div>
+<iframe name="index" src="./workbench.html" width="100%" height="100%">
+
+</iframe>
+<div id="footer">
+    <div class="myFooter">
+        <p>Copyright  2018 All Rights Reserved.医加科技 版权所有</p>
+    </div>
+</div>
+<script src="../js/caidan.js"></script>
+</body>
+</html>

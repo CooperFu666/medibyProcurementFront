@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>定价</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<link rel="stylesheet" href="../css/commn.css">
+		<link rel="stylesheet" href="../css/fixAPrice.css">
+	</head>
+
+	<body>
+		<div id="header"></div>
+		<div id="nav"></div>
+		<div class="fixAPrice">
+			<div class="boxone">
+				<div>
+					<h4>项目进度</h4>
+					<table width="60%" style="text-align: center;margin: auto">
+						<tr>
+							<td>
+								<img src="../images/blueAirport.gif" alt="">
+								<h5>提交采购订单</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/blueClock.gif" alt="">
+								<h5>调研</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/yellowMoney.png" alt="">
+								<h5>定价</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/cup.png" alt="">
+								<h5>采购</h5>
+							</td>
+							<td>
+								<hr>
+							</td>
+							<td>
+								<img src="../images/file.gif" alt="">
+								<h5>归档</h5>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<!--第二个表格-->
+				<div style="margin-top: 20px; height: 310px;padding:0 20px 20px 19px">
+					<div class="two-box">
+						<h4>采购概况</h4>
+						<div class="all-input">
+
+							<img src="../images/Purchase .gif" alt="" style="margin-left: 0">
+							<h5><a style="float: left;">采购项目名称：</a><span class="fixProject" style="width: 120px;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;float: left;"></span></h5>
+							<img src="../images/num.gif" alt="">
+							<h5>采购项目编号：<span class="fixNumber">AL102012</span></h5>
+
+							<img src="../images/clock.gif" alt="" style=" margin: 6px 10px 0 10%;">
+							<h5>采购截止时间:<span class="fixTime">AL102012</span></h5>
+
+							<img src="../images/pople.gif" alt="">
+							<h5>项目负责人:<span class="fixName">唤雨师（调研专员）</span></h5>
+
+							<h4 id="Remarks">采购原由/备注</h4>
+							<div class="meg">
+								<img src="../images/pople.gif" alt="">
+								<h5>项目申请人:<span class="projectName">唤雨师</span></h5>
+
+								<img src="../images/book.gif" alt="">
+								<h5>申请时间：<span class="projectTime">2018-12-30 16:00:00</span></h5>
+
+								<img src="../images/priority.jpg" alt="" style="margin-left: 60px;">
+								<h5>优先级：<span class="projectPri">高</span></h5>
+							</div>
+							<div class="textarea purchaseRemark" rows="8" style="height: 126px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第三个表格-->
+			<div style="padding: 0 20px 123px 20px">
+				<div class="three-box">
+					<h4>我的调研报告</h4>
+					<ul class="report">
+						<li>
+							<p><img src="../images/line.gif">提交报告：<i class="reportName">大队长</i></p>
+							<p><img src="../images/clock.gif">提交时间：<i class="reportTime">2018-12-30 16:21:12</i></p>
+							<button class="seeResearch">查看调研报告</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="Submission">
+				<div>
+					<button class="submit">定价</button>
+					<button class="login">不执行该项目</button>
+				</div>
+			</div>
+
+			<!--弹出框-->
+			<div class="report_alert">
+				<div class="report_alert_box">
+					<div class="box_title">
+						<h2>调研报告</h2>
+						<img src="../images/fork.gif" alt="" class="fork">
+					</div>
+					<div class="box_table">
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										<div class="weitre">
+											<span class="w_90">品牌</span>
+											<span class="w_120">型号</span>
+											<span class="w_1500">中文名</span>
+											<span class="w_1088">英文名</span>
+											<span class="w_72">数量</span>
+											<span class="w_92">规格/包装</span>
+											<span class="w_74">注册证</span>
+										</div>
+									</td>
+									<td class="typeNickname">
+
+									</td>
+									<td>
+										<span class="w_280 Target_price">目标采购价</span>
+									</td>
+								</tr>
+								<table class="box_list">
+
+								</table>
+
+							</tbody>
+						</table>
+					</div>
+					<div class="box_operate">
+						<button class="enter">进入采购审批</button>
+						<button class="reInvestigation">重新调研</button>
+						<button class="reInkeep">保存</button>
+						<button class="fork">取消</button>
+					</div>
+				</div>
+			</div>
+			<!--重新选择调研人-->
+			<div class="reIn_alert" style="display: ;">
+				<div class="reIn_alert_box">
+					<h2>请选择重新调研人</h2>
+					<div class="scope_pople">
+						<h3>请选择重新调研人</h3>
+						<div class="check_scope">
+							<h5>基础信息填写：</h5>
+							<ul class="screening base">
+								<li class="screening_state">
+									<span>赵菲</span>
+									<input type="checkbox" id="no_give" value="0">
+									<label for="no_give"></label>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="domestic" class="pople_number">
+						<div class="check_scope">
+							<div style="margin-top: 18px;">
+								<h5><i data-id="0" class="scope_if">国内</i>：</h5>
+								<div style="overflow: hidden">
+									<div class="check_perform">
+										<div class="executor">
+											<ul class="screening">
+												<li class="screening_state">
+													<span>赵菲</span>
+													<input type="checkbox" id="no_give1" value="0">
+													<label for="no_give1"></label>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div id="foreign" class="pople_number">
+						<div class="check_scope">
+							<div class="foreign">
+								<h5><i data-id="1" class="scope_if">国外</i>：</h5>
+								<div style="overflow: hidden">
+									<div class="domestic">
+										<div class="executor">
+											<ul class="screening">
+												<li class="screening_state">
+													<span>赵菲</span>
+													<input type="checkbox" id="no_give2" value="0">
+													<label for="no_give2"></label>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<button class="queren" style="margin-left: 88px;">确认</button>
+					<button class="quxiao" style="margin-right: 0;">取消</button>
+				</div>
+			</div>
+
+		</div>
+        <div id="change_password"></div>
+		<div id="footer"></div>
+		<!--取消二次确认弹窗-->
+		<div class="cancel_alert">
+			<div class="cancel_alert_box">
+				<p>"是否不保存数据，取消并返回"</p>
+				<button class="cancel_alert_box_yes" style="margin-left: 154px;">是的</button>
+				<button class="cancel_alert_box_no">算了</button>
+			</div>
+		</div>
+		<!--不执行原因-->
+		<div class="alert_box_bg">
+			<div class="alert_box">
+				<div class="alert_content">
+					<h2>不执行原因</h2>
+					<textarea rows="10" class="stopRemark" placeholder="此处填写原因..."></textarea>
+					<div class="btn_box_B">
+						<button class="sure_withdraw">确定</button>
+						<button class="no_research_cancel">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../plugins/jquery.js"></script>
+		<script src="../js/fixAPrice.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/plug-in.js"></script>
+		<script src="../js/config/config.js"></script>
+		<script>
+			var C1 = window.location.href.split("&")[1]; //得到'procurementId'=procurementId
+			var procurementId = C1.split("=")[1]; //得到procurementId
+			//获取用户名
+			var userId = $.cookie('userId');
+			//获取资源令牌
+			var userToken = $.cookie('userToken');
+			//点击调研报告-重新调研
+			$(".reInvestigation").click(function() {
+				$(".report_alert").hide();
+				$(".reIn_alert").show();
+			});
+			//点击调研报告-重新调研-取消
+			$(".quxiao").click(function() {
+				$(".reIn_alert").hide();
+				$(".report_alert").show();
+			});
+			//点击调研报告-重新调研-确认
+			$(".queren").click(function() {
+				$(".reIn_alert").hide();
+				$(".report_alert").show();
+			});
+
+			//定价主页
+			$(document).ready(function() {
+				//定价主页
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						api: "get.pricingIndex", //接口名
+						apiVersion: "v1", //接口版本
+						procurementId: procurementId, //采购申请id
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						console.log(data)
+						$(".fixProject").text(data.data.purchaseTitle); //项目名称
+						$(".fixNumber").text(data.data.purchaseItemNumber); //采购项目编号
+						$(".fixTime").text(data.data.purchaseEndTime); //采购截止时间
+						$(".fixName").text(data.data.purchasePrincipal); //项目负责人
+						$(".projectName").text(data.data.purchaseSubmitter); //采购申请者
+						$(".projectTime").text(data.data.purchaseSubmitterTime); //采购申请时间
+						$(".projectPri").text(data.data.level); //优先级
+						$(".purchaseRemark").text(data.data.purchaseRemark); //理由
+						$(".reportName").text(data.data.researchSubmitter); //采购调研者
+						$(".reportTime").text(data.data.researchTime); //调研时间
+						$(".seeResearch").data("purchaseId", data.data.purchaseId); //采购id
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				})
+			});
+
+			function _for(arr) {
+				var yemei = [];
+				for(var i = 0; i < arr.length; i++) {
+					obj = [{
+						'name': arr[i].nickname,
+						'type': arr[i].type
+					}];
+					yemei.push(obj);
+					/*if(yemei.length == 0) {
+						
+					} else {
+						for(var ii = 0; ii < yemei.length; ii++) {
+							if(yemei[ii][0].name != arr[i].nickname && yemei[ii][0].type != arr[i].type) {
+								yemei.push(obj);
+							}
+						}
+					}*/
+				}
+				var allArr = [];
+				$.each(yemei, function(i, v) {
+					var flag = true;
+					if(allArr.length > 0) {
+						$.each(allArr, function(n, m) {
+							if(allArr[n][0].name == yemei[i][0].name && allArr[n][0].type == yemei[i][0].type) {
+								flag = false;
+							};
+						});
+					};
+					if(flag) {
+						allArr.push(yemei[i]);
+					};
+				});
+				return allArr;
+			};
+
+			//查看调研报告
+			$(".seeResearch,.submit").click(function() {
+				var seeResearch = $(this).text()
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						api: "get.research", //接口名
+						apiVersion: "v1", //接口版本
+						procurementId: procurementId, //采购申请id
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						console.log(data)
+						var html = '';
+						var barMain = '';
+						var typeNickname = '';
+						var yemei = _for(data.data[0].researchList)
+						for(var aa = 0; aa < yemei.length; aa++) {
+							if(yemei[aa][0].type == 0) {
+								type = "国内"
+							} else if(yemei[aa][0].type == 1) {
+								type = "国外"
+							}
+							typeNickname += "<span class='w_280 text_left'>" + type + "价格（<i>" + yemei[aa][0].name + "</i>）</span>"
+						}
+						for(var i = 0; i < data.data.length; i++) {
+						    if(data.data[i].isPurchase == 1){
+                                var brandTitle = data.data[i].brandTitle; //品牌名
+                                var commodityId = data.data[i].commodityId; //商品id
+                                var modelTitle = data.data[i].modelTitle; //型号
+                                var commodityTitle = data.data[i].commodityTitle; //商品名称
+                                var commodityTitleEnglish = data.data[i].commodityTitleEnglish; //商品名称（英文）
+                                var number = data.data[i].number; //数量
+                                var unit = data.data[i].unit; //规格
+                                var isRegister = data.data[i].isRegister; //是否注册
+                                var targetTaxPrice = data.data[i].targetTaxPrice; //含税价
+                                var targetNoTaxPrice = data.data[i].targetNoTaxPrice; //不含税价
+                                if(isRegister == 0) {
+                                    isRegister = "无"
+                                } else if(isRegister == 1) {
+                                    isRegister = "有"
+                                }
+                                var researchList = data.data[i].researchList; //供应商，价格
+                                html += "<tr class='tr_list' id='" + commodityId + "'><td class='ver_mid ver_bor'><div class='wer'><span class='w_90'>" + brandTitle + "</span><span class='w_120'>" + modelTitle + "</span><span class='w_150' onmouseover='this.title=this.title' title='"+ commodityTitle +"'>" + commodityTitle + "</span><span class='w_108' onmouseover='this.title=this.title' title='"+ commodityTitleEnglish +"'>" + commodityTitleEnglish + "</span><span class='w_72'>" + number + "</span><span class='w_92'>" + unit + "</span><span class='w_74' style='width:94px'>" + isRegister + "</span></div></td><td class='bar_bor'>"
+
+                                for(var a = 0; a < yemei.length; a++) {
+                                    html += "<span class='w_280 text_left barMain'><p class='bar_bor_nav'><i>供应商</i><i>含税价</i><i>不含税价</i></p>"
+
+                                    for(var r = 0; r < researchList.length; r++) {
+                                        var company = researchList[r].company; //供应商
+                                        var taxPrice = researchList[r].taxPrice; //含税价
+                                        var noTaxPrice = researchList[r].noTaxPrice; //不含税价
+                                        var type = researchList[r].type; //0国内1国外
+                                        var nickname = researchList[r].nickname; //调研者用户名
+
+                                        if(type == yemei[a][0].type && nickname == yemei[a][0].name) {
+                                            html += "<p class='bar_bor_list'><i onmouseover='this.title=this.title' title='"+ company +"'>" + company + "</i><i>" + taxPrice + "</i><i>" + noTaxPrice + "</i></p>"
+                                        }
+                                    }
+                                    html += "</span>";
+                                }
+                                seeResearch == '定价' ?
+                                    html += "</td><td class='ver_mid ver_price' style='background: #f5fbfe;'><span class='w_280'><p class='bar_bor_nav ar_bor_nav_price'><i>含税价</i><i class='w_140'>不含税价</i></p><p class='bar_bor_list'><i><input type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g, \"\")' class='targetTaxPrice' value="+targetTaxPrice+"></i><i class='w_140'><input onkeyup='this.value=this.value.replace(/[^0-9]/g, \"\")' type='text' class='noTaxPrice' value="+targetNoTaxPrice+" ></i></p></span></td></tr>" :
+                                    html += '</td></tr>';
+                                seeResearch == '定价' ? $('.Target_price,.enter,.reInvestigation,.reInkeep').show() : $('.Target_price,.enter,.reInvestigation,.reInkeep').hide();
+                            }
+
+						}
+						$(".box_list").html(html);
+						$(".typeNickname").html(typeNickname);
+
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				})
+			});
+
+			//保存目标采购价
+			$(".reInkeep").click(function() {
+				var jsonStr = "[";
+				for(var i = 0; i < $(".ver_price").length; i++) {
+					var commodityId = $(".ver_price:eq(" + i + ")").parents(".tr_list").attr("id");
+					jsonStr += "{\"commodityId\":\"" + commodityId + "\","; //商品id
+					var taxPrice = $(".ver_price:eq(" + i + ")").find(".targetTaxPrice").val();
+					if(taxPrice == ''){
+                        taxPrice = null
+                        jsonStr += "\"taxPrice\":" + taxPrice + ","; //目标含税采购价
+                    }else{
+                    	jsonStr += "\"taxPrice\":\"" + taxPrice + "\","; //目标含税采购价
+                    }
+					
+					var noTaxPrice = $(".ver_price:eq(" + i + ")").find(".noTaxPrice").val();
+                    if(noTaxPrice == ''){
+                        noTaxPrice = null
+                        jsonStr += "\"noTaxPrice\":" + noTaxPrice + "},"; //目标不含税采购价
+                    }else{
+                    	jsonStr += "\"noTaxPrice\":\"" + noTaxPrice + "\"},"; //目标不含税采购价
+                    }
+					
+				}
+				jsonStr = jsonStr.substring(0, jsonStr.length - 1) + "]";
+				var commodityList = JSON.parse(jsonStr);
+				console.log(commodityList)
+//                return false
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						action: 0, //0保存1定价，进入下一步
+						api: "run.targetPrice", //接口名
+						apiVersion: "v1", //接口版本
+						procurementId: procurementId, //采购申请id
+						userId: userId, //用户名
+						userToken: userToken, //资源令牌
+						commodityList: JSON.stringify(commodityList)
+					},
+					success: function(data) {
+						console.log(data)
+						window.location.href = "workbench.html"
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				});
+			});
+
+			//进入采购审批
+			$(".enter").click(function() {
+				var jsonStr = "[";
+                for(var i = 0; i < $(".ver_price").length; i++) {
+                    var commodityId = $(".ver_price:eq(" + i + ")").parents(".tr_list").attr("id");
+                    jsonStr += "{\"commodityId\":\"" + commodityId + "\","; //商品id
+                    var taxPrice = $(".ver_price:eq(" + i + ")").find(".targetTaxPrice").val();
+                    if(taxPrice == ''){
+                        taxPrice = null
+                        jsonStr += "\"taxPrice\":" + taxPrice + ","; //目标含税采购价
+                    }else{
+                        jsonStr += "\"taxPrice\":\"" + taxPrice + "\","; //目标含税采购价
+                    }
+
+                    var noTaxPrice = $(".ver_price:eq(" + i + ")").find(".noTaxPrice").val();
+                    if(noTaxPrice == ''){
+                        noTaxPrice = null
+                        jsonStr += "\"noTaxPrice\":" + noTaxPrice + "},"; //目标不含税采购价
+                    }else{
+                        jsonStr += "\"noTaxPrice\":\"" + noTaxPrice + "\"},"; //目标不含税采购价
+                    }
+
+                }
+				jsonStr = jsonStr.substring(0, jsonStr.length - 1) + "]";
+				var commodityList = JSON.parse(jsonStr);
+				console.log(commodityList)
+				for(var i = 0; i < commodityList.length; i++) {
+					if(commodityList[i].taxPrice == null && commodityList[i].noTaxPrice == null) {
+						$.Pop('含税价、不含税价不能同时为空',{BoxBg:false},'alert')
+						return false
+					}
+				}
+
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						action: 1, //0保存1定价，进入下一步
+						api: "run.targetPrice", //接口名
+						apiVersion: "v1", //接口版本
+						procurementId: procurementId, //采购申请id
+						userId: userId, //用户名
+						userToken: userToken, //资源令牌
+						commodityList: JSON.stringify(commodityList)
+					},
+					success: function(data) {
+						console.log(data)
+						window.location.href = "workbench.html"
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				});
+			});
+
+			//重新调研-保存调研执行者
+			$(".reInvestigation").click(function() {
+				//获取调研执行者列表
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						action: 6,
+						api: "common.getUserList", //接口名
+						apiVersion: "v1", //接口版本
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						console.log(data)
+						// 调研人数选择
+						//国内
+						var html = '';
+						for(var i = 0; i < data.data.length; i++) {
+							html += "<li class='screening_state'><span>" + data.data[i].userName + "</span><input type='checkbox' id='home_" + data.data[i].userId + "'><label for='home_" + data.data[i].userId + "'></label></li>"
+						}
+						$(".check_perform .screening").html(html)
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				});
+				//获取调研执行者列表
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						action: 7,
+						api: "common.getUserList", //接口名
+						apiVersion: "v1", //接口版本
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						console.log(data)
+						// 调研人数选择
+						//国外
+						var html = '';
+						for(var i = 0; i < data.data.length; i++) {
+							html += "<li class='screening_state'><span>" + data.data[i].userName + "</span><input type='checkbox' id='abroad_" + data.data[i].userId + "'><label for='abroad_" + data.data[i].userId + "'></label></li>"
+						}
+						$(".domestic .screening").html(html)
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				});
+				//获取填写基础信息用户列表
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						action: 8,
+						api: "common.getUserList", //接口名
+						apiVersion: "v1", //接口版本
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						console.log(data)
+						var html = '';
+						for(var i = 0; i < data.data.length; i++) {
+							html += "<li class='screening_state'><span>" + data.data[i].userName + "</span><input type='checkbox' val='" + data.data[i].userId + "' data-id='" + data.data[i].userId + "' id='base_" + data.data[i].userId + "'><label for='base_" + data.data[i].userId + "'></label></li>"
+						}
+						$(".base").html(html)
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				});
+				
+				//默认调研人
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						api: "get.research", //接口名
+						apiVersion: "v1", //接口版本
+						procurementId: procurementId, //采购申请id
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						var yemei = _for(data.data[0].researchList)
+						console.log(yemei)
+						$.each(yemei, function(i, v) {
+							if(yemei[i][0].type == 0) {
+								for(var s = 0; s < $('.check_perform').find("span").length; s++){
+									if(yemei[i][0].name == $('.check_perform').find("span:eq(" + s + ")").text()){
+										$('.check_perform').find("span:eq(" + s + ")").text(yemei[i][0].name).next('input').attr("checked", true);
+									}
+									
+								}
+							}
+							if(yemei[i][0].type == 1) {
+								for(var s = 0; s < $('.domestic').find("span").length; s++){
+									if(yemei[i][0].name == $('.domestic').find("span:eq(" + s + ")").text()){
+										$('.domestic').find("span:eq(" + s + ")").text(yemei[i][0].name).next('input').attr("checked", true);
+									}
+									
+								}
+							}
+						});
+						
+					}
+				})
+				
+				//默认基础信息填写人
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						api: "get.pricingIndex", //接口名
+						apiVersion: "v1", //接口版本
+						procurementId: procurementId, //采购申请id
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						console.log(data.data.baseInfoUserId)
+						for(var s = 0; s < $('.base').find("span").length; s++){
+							if(data.data.baseInfoUserId == $('.base').find("input:eq(" + s + ")").attr("data-id")){
+								$('.base').find("input:eq(" + s + ")").val(data.data.baseInfoUserId).attr("checked", true);
+							}
+							
+						}
+						
+						
+					}
+				})
+				
+				
+
+			});
+			
+			$('body').on('change', '.base input', function() {
+				$('.base').find('input[type=checkbox]').not(this).attr("checked", false);
+			});
+			$(".queren").click(function() {
+				//获取用户名
+				var userId = $.cookie('userId');
+				//获取资源令牌
+				var userToken = $.cookie('userToken');
+				
+				//获取基础信息填写者id
+				var base = $(".base input:checked").attr("id");
+				var str;
+				if(base == undefined){
+					str = ""
+				}else{
+					str = base.substr(base.length-1,1);
+				}
+
+				var arr = [];
+				//国内
+				var domesticObj = {};
+				domesticObj.type = 0;
+				domesticObj.userIdLIst = [];
+				for(var i = 0; i < $(".check_perform input").length; i++) {
+					var userIdLIst = $(".check_perform input:checked:eq(" + i + ")").attr("id");
+					var str;
+					if(userIdLIst != undefined){
+						str = userIdLIst.substr(userIdLIst.length-1,1)
+						domesticObj.userIdLIst.push(str)
+					}
+				}
+				
+				//国外
+				var foreignObj = {};
+				foreignObj.type = 1;
+				foreignObj.userIdLIst = [];
+				for(var i = 0; i < $(".domestic input").length; i++) {
+					var userIdLIst = $(".domestic input:checked:eq(" + i + ")").attr("id");
+					var str;
+					if(userIdLIst != undefined){
+						str = userIdLIst.substr(userIdLIst.length-1,1)
+						foreignObj.userIdLIst.push(str)
+					}
+				}
+				
+				for(var i = 0; i <= $(".scope_if").attr("data-id").length;i++){
+					if($(".scope_if:eq("+ i +")").attr("data-id") == "0") {
+						if(domesticObj.userIdLIst.length>0)arr.push(domesticObj);
+					} else if($(".scope_if:eq("+ i +")").attr("data-id") == 1) {
+						if(foreignObj.userIdLIst.length>0)arr.push(foreignObj);
+					}
+				}
+				console.log(arr)
+				$.ajax({
+					url: dataUrl,
+					type: "post",
+					dataType: "json",
+					data: {
+						api: "re.research", //接口名
+						apiVersion: "v1", //接口版本
+						baseINfoAction: str, //获取基础信息填写者id
+						procurementId: procurementId, //采购申请id
+						researchAction: JSON.stringify(arr), //调研执行者
+						userId: userId, //用户名
+						userToken: userToken //资源令牌
+					},
+					success: function(data) {
+						console.log(data)
+						window.location.href = "workbench.html"
+					},
+					error: function(data) {
+						console.log("失败")
+					}
+				});
+			});
+
+			//不执行该项目（关闭）
+			$(".login").click(function() {
+				$(".alert_box_bg").show();
+				$(".sure_withdraw").click(function() {
+					var stopRemark = $('.stopRemark').val()
+					if(stopRemark != '') {
+						$.ajax({
+							url: dataUrl,
+							type: "post",
+							dataType: "json",
+							data: {
+								api: "common.closeProcurement", //接口名
+								apiVersion: "v1", //接口版本
+								procurementId: procurementId, //采购申请id
+								stopRemark: stopRemark, //	不执行原因
+								userId: userId, //用户名
+								userToken: userToken //资源令牌
+							},
+							success: function(data) {
+								console.log(data)
+								if(data.data.flag == 1) {
+									window.location.href = './workbench.html';
+								}
+								if(data.code == 114){
+                                    $.Pop('没有该权限',{BoxBg:false},'alert')
+                                }
+							},
+							error: function(data) {
+								console.log("失败")
+							}
+						});
+					} else {
+						$.Pop('请填写不执行原因',{BoxBg:false},'alert')
+					}
+
+				});
+				$(".no_research_cancel").click(function() {
+					$(".alert_box_bg").hide();
+				});
+			});
+		</script>
+	</body>
+
+</html>

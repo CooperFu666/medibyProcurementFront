@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的采购申请</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalabel=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<!--element 样式-->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+		<link rel="stylesheet" href="../css/commn.css">
+		<link rel="stylesheet" href="../css/PurchasingApplication.css">
+	</head>
+
+	<body>
+		<div id="header"></div>
+		<div id="nav"></div>
+		<div class="PurchasingApplication">
+			<div>
+				<div class="PurchasingApplication_box">
+					<h2>我的采购申请</h2>
+					<div class="skate">
+						<ul class="screening">
+							<li>
+								项目状态:
+							</li>
+							<li class="screening_state">
+								<span>未提交</span>
+								<input type="checkbox" checked id="no_give" value="0">
+								<label for="no_give"></label>
+							</li>
+							<li class="screening_state">
+								<span>调研中</span>
+								<input type="checkbox" checked id="research" value="1">
+								<label for="research"></label>
+							</li>
+							<li class="screening_state">
+								<span>未定价</span>
+								<input type="checkbox" checked id="price" value="2">
+								<label for="price"></label>
+							</li>
+							<li class="screening_state">
+								<span>已定价</span>
+								<input type="checkbox" checked id="sure_price" value="3">
+								<label for="sure_price"></label>
+							</li>
+							<li class="screening_state">
+								<span>采购中</span>
+								<input type="checkbox" checked id="buyIt" value="4">
+								<label for="buyIt"></label>
+							</li>
+							<li class="screening_state">
+								<span>已完结</span>
+								<input type="checkbox" checked id="over" value="6">
+								<label for="over"></label>
+							</li>
+							<li class="screening_state">
+								<span>已关闭</span>
+								<input type="checkbox" checked id="close" value="7">
+								<label for="close"></label>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<ul class="check">
+							<li>
+								项目负责人：
+								<select style="width: 60px" class="suggestAction">
+
+								</select>
+							</li>
+							<li>
+								排序方式：
+								<select style="width: 154px" class="app_sort">
+									<option value="1">按更新时间近至远</option>
+									<option value="2">按更新时间远至近</option>
+									<option value="3">按申请时间近至远</option>
+									<option value="4">按申请时间远至近</option>
+								</select>
+							</li>
+							<li>
+								<select style="width: 80px" class="app_model">
+									<option value="brand">按品牌</option>
+									<option value="model">按型号</option>
+									<option value="commodityTitle">按产品名</option>
+									<option value="procurementTitle">按项目名</option>
+								</select>
+								<input type="text" maxlength="20" class="app_model_text">
+								<button class="app_model_search">搜索</button>
+							</li>
+							<li id="app">
+								<select style="width: 110px" class="app_time">
+									<option value="1">按申请时间</option>
+									<option value="2">按更新时间</option>
+								</select>
+								<template>
+									<div class="block block_start" style="display: inline-block">
+										<el-date-picker v-model="value1" type="date" style="width: 120px; height: 26px;" placeholder="请选择开始时间">
+										</el-date-picker>
+									</div>
+								</template>
+								<span>--</span>
+								<template>
+									<div class="block block_end" style="display: inline-block">
+										<el-date-picker v-model="value2" type="date" style="width: 120px; height: 26px;padding: 0" placeholder="请选择结束时间">
+										</el-date-picker>
+									</div>
+								</template>
+								<!--<input type="text" placeholder="请选择结束时间"  style="width: 120px">-->
+								<button class="app_time_search">搜索</button>
+							</li>
+						</ul>
+					</div>
+					<table width="100%" class="Application_table">
+						<tr>
+							<th width="25%">项目名称</th>
+							<th width="6%">状态</th>
+							<th width="14%">项目负责人</th>
+							<th width="20%">当前执行人</th>
+							<th width="5%">优先级</th>
+							<th width="15%">申请时间</th>
+							<th width="15%">更新时间</th>
+						</tr>
+						<!--这里是没有采购申请时显示的部分-->
+						<tr class="no_seen">
+							<td colspan="7" style="height: auto;text-align: center;display: table-cell;">
+								<img src="../images/no_application.gif" alt="">
+								<h3>我没有提交过采购申请..</h3>
+							</td>
+						</tr>
+						<table width="100%" class="Application_table_list">
+
+						</table>
+
+					</table>
+					<div class="page">
+						<p>总计<span class="totalRecord"></span> 个记录 分为 <span class="pageNum"></span> 页 ，每页<span class="pageSize">30</span>个记录</p>
+						<div class="check_page">
+							<div>
+								<button class="pre_page">上一页</button>
+								<button class="next_page">下一页</button>
+								<div class="write_page">
+									<span style="display: inline-block;margin-right: 13px">共<span  class="pageNum"></span>页</span>
+									<span>跳转到</span>
+									<input type="text" maxlength="4" class="write_number">
+									<span>页</span>
+									<button class="sure_local">确定</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div id="change_password"></div>
+		<div id="footer"></div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<!-- 引入组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<script src="../plugins/jquery.js"></script>
+		<script src="../js/PurchasingApplication.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/plug-in.js"></script>
+		<script src="../js/config/config.js"></script>
+		<script>
+			$(function() {
+				//paga
+				var paga = 1;
+				//获取用户名
+				var userId = $.cookie('userId');
+				//获取资源令牌
+				var userToken = $.cookie('userToken');
+
+				function _ahref() {
+					for(var i = 0; i < $(".ver_price").length; i++) {
+						var skip = $(".ver_price:eq(" + i + ")").find(".skip").attr("id");
+						var procurementId = $(".ver_price:eq(" + i + ")").attr("data-id");
+					};
+					//0提交采购申请
+					$(".skip[id='0']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+
+						$(this).attr("href", "ProjectDetails.html?id=" + 0 + "&procurementId=" + procurementId);
+					});
+					//1提交调研报告
+					$(".skip[id='1']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+						$(this).attr("href", "ProjectDetails.html?id=" + 1 + "&procurementId=" + procurementId);
+					});
+					//2定价
+					$(".skip[id='2']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+						$(this).attr("href", "ProjectDetails.html?id=" + 2 + "&procurementId=" + procurementId);
+					});
+					//3填写建议采购量
+					$(".skip[id='3']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+						$(this).attr("href", "ProjectDetails.html?id=" + 3 + "&procurementId=" + procurementId);
+					});
+					//4提交采购报告
+					$(".skip[id='4']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+						$(this).attr("href", "ProjectDetails.html?id=" + 4 + "&procurementId=" + procurementId);
+					});
+					//5是否继续
+					$(".skip[id='5']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+						$(this).attr("href", "ProjectDetails.html?id=" + 5 + "&procurementId=" + procurementId);
+					});
+					//6已完结
+					$(".skip[id='6']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+						$(this).attr("href", "ProjectDetails.html?id=" + 6 + "&procurementId=" + procurementId);
+					});
+					//7关闭
+					$(".skip[id='7']").each(function() {
+						var procurementId = $(this).parent().parent(".ver_price").attr("data-id");
+						$(this).attr("href", "ProjectDetails.html?id=" + 7 + "&procurementId=" + procurementId);
+					});
+				}
+
+				$(document).ready(function() {
+					//获取项目负责人列表
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							action: 1,
+							api: "common.getUserList", //接口名
+							apiVersion: "v1", //接口版本
+							userId: userId, //用户名
+							userToken: userToken //资源令牌
+						},
+						success: function(data) {
+						    console.log(data)
+							var html = '';
+							html += "<option data-id=''>全部</option>"
+							for(var i = 0; i < data.data.length; i++) {
+								html += "<option data-id='" + data.data[i].userId + "'>" + data.data[i].userName + "</option>"
+							}
+							$(".suggestAction").html(html);
+
+							//获取项目负责人id
+							var principalId = $(".suggestAction option:selected").attr("data-id");
+							//获取开始时间
+							var block_start = $(".block_start input").val();
+							//获取结束时间
+							var block_end = $(".block_end input").val();
+							//1申请时间2更新时间
+							var app_time = $(".app_time option:selected").val();
+							//获取排序方式
+							var app_sort = $(".app_sort option:selected").val();
+							//获取品牌搜索
+							var app_model = $(".app_model option:selected").val();
+							//获取品牌搜索input框内容
+							var app_model_text = $(".app_model_text").val();
+							var texts = [$(".screening .screening_state :checkbox:checked").closest(".screening_state input").val()];
+							texts = [];
+							$(".screening .screening_state :checkbox:checked").each(function() {
+								texts.push($(this).closest(".screening_state input").val());
+							});
+									
+							//对象动态添加属性并赋值
+							var bySome = {};
+							app_model = app_model;
+							app_model_text = app_model_text;
+							bySome[app_model] = app_model_text;
+							
+							$.ajax({
+								url: dataUrl,
+								type: "post",
+								dataType: "json",
+								data: {
+									action: 1, //1我的采购申请2采购档案3我的调研报告4我的采购报告
+									api: "index.getDoc", //接口名
+									apiVersion: "v1", //接口版本
+									page: paga, //第几页
+									userId: userId, //用户名
+									userToken: userToken, //资源令牌
+									searchParams: JSON.stringify({
+										bySome,
+										principalId: principalId, //项目负责人id
+										sort: app_sort, //排序方式
+										status: texts //项目状态，如[0,1,2,3,4,5,6]
+									})
+								},
+								success: function(data) {
+									console.log(data)
+									var num = data.data.procurementList.length //表格所有行数(所有记录数)
+									$('.pageNum').text(data.data.pageNum)
+									$('.totalRecord').text(data.data.totalRecord)
+									$('.pageSize').text(data.data.pageSize)
+									var html = '' //内容
+									if(data.data.pageNum == 1) {
+										$('.check_page').css({
+											'display': 'none'
+										})
+									} else {
+										$('.check_page').css({
+											'display': 'block'
+										})
+									}
+									for(var r = 0; r < num; r++) {
+										var procurementTitle = data.data.procurementList[r].procurementTitle; //项目名称
+										var procurementItemNumber = data.data.procurementList[r].procurementItemNumber; //项目编号
+										var status = data.data.procurementList[r].status; //状态
+										var principal = data.data.procurementList[r].principal; //项目负责人
+										var procurementId = data.data.procurementList[r].procurementId; //采购id
+										var executor = data.data.procurementList[r].executor; //执行人
+										var level = data.data.procurementList[r].level; //优先级
+										var applicationTime = data.data.procurementList[r].applicationTime; //申请时间
+										var updateTime = data.data.procurementList[r].updateTime; //更新时间
+										var statusNo = data.data.procurementList[r].statusNo; //判断跳转位置 0提交采购申请 1提交调研报告 2定价 3填写建议采购量 4提交采购报告 5是否继续 6已完结 7关闭
+										html += "<tr class='ver_price' data-id='" + procurementId + "'><td width='25%'><a href='' id='" + statusNo + "' class='skip'><img src='../images/project.gif' alt='' style='vertical-align: middle;margin-right:4px;'><span>" + procurementTitle + "</span><span>（项目编号" + procurementItemNumber + "）</span></a></td><td width='6%'>" + status + "</td><td width='14%'>" + principal + "</td><td width='20%'>" + executor + "</td><td width='5%'><span>" + level + "</span></td><td width='15%'>" + applicationTime + "</td><td width='15%'>" + updateTime + "</td></tr>"
+									}
+									$(".Application_table_list").html(html);
+
+									if(data.data.procurementList.length == 0) {
+										$('.check_page').css({
+											'display': 'none'
+										})
+										$(".no_seen").show()
+									} else {
+										$(".no_seen").hide()
+									};
+									_ahref();
+								},
+								error: function(data) {
+									console.log("失败")
+								}
+							})
+
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					});
+
+				});
+
+				function _ajax(pageNumber) {
+					//获取项目负责人id
+					var principalId = $(".suggestAction option:selected").attr("data-id");
+					//获取开始时间
+					var block_start = $(".block_start input").val();
+					//获取结束时间
+					var block_end = $(".block_end input").val();
+					//1申请时间2更新时间
+					var app_time = $(".app_time option:selected").val();
+					//获取排序方式
+					var app_sort = $(".app_sort option:selected").val();
+					//获取品牌搜索
+					var app_model = $(".app_model option:selected").val();
+					//获取品牌搜索input框内容
+					var app_model_text = $(".app_model_text").val();
+					var texts = [$(".screening .screening_state :checkbox:checked").closest(".screening_state input").val()];
+					texts = [];
+					$(".screening .screening_state :checkbox:checked").each(function() {
+						texts.push($(this).closest(".screening_state input").val());
+					});
+					
+					//对象动态添加属性并赋值
+					var bySome = {};
+					app_model = app_model;
+					app_model_text = app_model_text;
+					bySome[app_model] = app_model_text;
+					
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							action: 1, //1我的采购申请2采购档案3我的调研报告4我的采购报告
+							api: "index.getDoc", //接口名
+							apiVersion: "v1", //接口版本
+							page: pageNumber, //第几页
+							userId: userId, //用户名
+							userToken: userToken, //资源令牌
+							searchParams: JSON.stringify({
+								bySome,
+								principalId: principalId, //项目负责人id
+								sort: app_sort, //排序方式
+								status: texts //项目状态，如[0,1,2,3,4,5,6]
+							})
+						},
+						success: function(data) {
+							console.log(data)
+							var num = data.data.procurementList.length //表格所有行数(所有记录数)
+							$('.pageNum').text(data.data.pageNum)
+							$('.totalRecord').text(data.data.totalRecord)
+							$('.pageSize').text(data.data.pageSize)
+							var html = '' //内容
+							if(data.data.pageNum == 1) {
+								$('.check_page').css({
+									'display': 'none'
+								})
+							} else {
+								$('.check_page').css({
+									'display': 'block'
+								})
+							}
+							for(var r = 0; r < num; r++) {
+								var procurementTitle = data.data.procurementList[r].procurementTitle; //项目名称
+								var procurementItemNumber = data.data.procurementList[r].procurementItemNumber; //项目编号
+								var status = data.data.procurementList[r].status; //状态
+								var principal = data.data.procurementList[r].principal; //项目负责人
+								var procurementId = data.data.procurementList[r].procurementId; //采购id
+								var executor = data.data.procurementList[r].executor; //执行人
+								var level = data.data.procurementList[r].level; //优先级
+								var applicationTime = data.data.procurementList[r].applicationTime; //申请时间
+								var updateTime = data.data.procurementList[r].updateTime; //更新时间
+								var statusNo = data.data.procurementList[r].statusNo; //判断跳转位置 0提交采购申请 1提交调研报告 2定价 3填写建议采购量 4提交采购报告 5是否继续 6已完结 7关闭
+								html += "<tr class='ver_price' data-id='" + procurementId + "'><td width='25%'><a href='' id='" + statusNo + "' class='skip'><img src='../images/project.gif' alt='' style='vertical-align: middle;margin-right:4px;'><span>" + procurementTitle + "</span><span>（项目编号" + procurementItemNumber + "）</span></a></td><td width='6%'>" + status + "</td><td width='14%'>" + principal + "</td><td width='20%'>" + executor + "</td><td width='5%'><span>" + level + "</span></td><td width='15%'>" + applicationTime + "</td><td width='15%'>" + updateTime + "</td></tr>"
+							}
+							$(".Application_table_list").html(html);
+
+							if(data.data.procurementList.length == 0) {
+								$('.check_page').css({
+									'display': 'none'
+								})
+								$(".no_seen").show()
+							} else {
+								$(".no_seen").hide()
+							};
+							_ahref();
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					});
+				};
+
+				//获取项目状态
+				var texts = [$(".screening .screening_state :checkbox:checked").closest(".screening_state input").val()];
+				//点击项目状态
+				$('.screening .screening_state :checkbox').change(function() {
+					texts = [];
+					$(".screening .screening_state :checkbox:checked").each(function() {
+						texts.push($(this).closest(".screening_state input").val());
+					});
+					_ajax(paga);
+				});
+
+				//点击项目负责人-点击排序方式
+				$('.suggestAction,.app_sort').change(function() {
+					_ajax(paga);
+				});
+
+				//点击按品牌搜索-点击按时间搜索
+				$('.app_model_search').click(function() {
+					_ajax(paga);
+				});
+				$(".app_time_search").click(function() {
+					//获取项目负责人id
+					var principalId = $(".suggestAction option:selected").attr("data-id");
+					//获取开始时间
+					var block_start = $(".block_start input").val();
+					//获取结束时间
+					var block_end = $(".block_end input").val();
+					//1申请时间2更新时间
+					var app_time = $(".app_time option:selected").val();
+					//获取排序方式
+					var app_sort = $(".app_sort option:selected").val();
+					//获取品牌搜索
+					var app_model = $(".app_model option:selected").val();
+					//获取品牌搜索input框内容
+					var app_model_text = $(".app_model_text").val();
+					var texts = [$(".screening .screening_state :checkbox:checked").closest(".screening_state input").val()];
+					texts = [];
+					$(".screening .screening_state :checkbox:checked").each(function() {
+						texts.push($(this).closest(".screening_state input").val());
+					});
+					
+					//对象动态添加属性并赋值
+					var bySome = {};
+					app_model = app_model;
+					app_model_text = app_model_text;
+					bySome[app_model] = app_model_text;
+					
+					$.ajax({
+						url: dataUrl,
+						type: "post",
+						dataType: "json",
+						data: {
+							action: 1, //1我的采购申请2采购档案3我的调研报告4我的采购报告
+							api: "index.getDoc", //接口名
+							apiVersion: "v1", //接口版本
+							page: paga, //第几页
+							userId: userId, //用户名
+							userToken: userToken, //资源令牌
+							searchParams: JSON.stringify({
+								bySome,
+								principalId: principalId, //项目负责人id
+								searchTime: {
+									timeArr: [block_start, block_end], //如[开始时间，结束时间]
+									type: app_time //1申请时间2更新时间
+								},
+								sort: app_sort, //排序方式
+								status: texts //项目状态，如[0,1,2,3,4,5,6]
+							})
+						},
+						success: function(data) {
+							console.log(data)
+							var num = data.data.procurementList.length //表格所有行数(所有记录数)
+							$('.pageNum').text(data.data.pageNum)
+							$('.totalRecord').text(data.data.totalRecord)
+							$('.pageSize').text(data.data.pageSize)
+							var html = '' //内容
+							if(data.data.pageNum == 1) {
+								$('.check_page').css({
+									'display': 'none'
+								})
+							} else {
+								$('.check_page').css({
+									'display': 'block'
+								})
+							}
+							for(var r = 0; r < num; r++) {
+								var procurementTitle = data.data.procurementList[r].procurementTitle; //项目名称
+								var procurementItemNumber = data.data.procurementList[r].procurementItemNumber; //项目编号
+								var status = data.data.procurementList[r].status; //状态
+								var principal = data.data.procurementList[r].principal; //项目负责人
+								var procurementId = data.data.procurementList[r].procurementId; //采购id
+								var executor = data.data.procurementList[r].executor; //执行人
+								var level = data.data.procurementList[r].level; //优先级
+								var applicationTime = data.data.procurementList[r].applicationTime; //申请时间
+								var updateTime = data.data.procurementList[r].updateTime; //更新时间
+								var statusNo = data.data.procurementList[r].statusNo; //判断跳转位置 0提交采购申请 1提交调研报告 2定价 3填写建议采购量 4提交采购报告 5是否继续 6已完结 7关闭
+								html += "<tr class='ver_price' data-id='" + procurementId + "'><td width='25%'><a href='' id='" + statusNo + "' class='skip'><img src='../images/project.gif' alt='' style='vertical-align: middle;margin-right:4px;'><span>" + procurementTitle + "</span><span>（项目编号" + procurementItemNumber + "）</span></a></td><td width='6%'>" + status + "</td><td width='14%'>" + principal + "</td><td width='20%'>" + executor + "</td><td width='5%'><span>" + level + "</span></td><td width='15%'>" + applicationTime + "</td><td width='15%'>" + updateTime + "</td></tr>"
+							}
+							$(".Application_table_list").html(html);
+
+							if(data.data.procurementList.length == 0) {
+								$('.check_page').css({
+									'display': 'none'
+								})
+								$(".no_seen").show()
+							} else {
+								$(".no_seen").hide()
+							};
+							_ahref();
+						},
+						error: function(data) {
+							console.log("失败")
+						}
+					});
+				})
+
+				$('body').on('click', '.pre_page', function() {
+					if(paga > 1) {
+						paga -= 1;
+						_ajax(paga)
+						$('.next_page').removeClass('active')
+					}
+				});
+				$('body').on('click', '.next_page', function() {
+					var pageNum = parseInt($('.pageNum').eq(0).text()); //获取总页数
+					paga += 1;
+					if(paga == pageNum) {
+						$('.next_page').addClass('active') //控制下一页显示
+					}
+					_ajax(paga)
+				})
+				$('body').on('click', '.sure_local', function() {
+					var pageNum = parseInt($('.pageNum').eq(0).text()); //获取总页数
+					paga = parseInt($('.write_number').val()); //获取输入页数
+					if(paga == 0) {
+						paga = 1 //控制输入0
+					}
+					if(paga > pageNum) {
+						paga = pageNum //控制输入跳转
+					}
+					if(paga == pageNum) {
+						$('.next_page').addClass('active') //控制下一页显示
+					}
+					_ajax(paga)
+				})
+
+			})
+		</script>
+
+	</body>
+
+</html>

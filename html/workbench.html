@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工作台</title>
+    <!--媒体查询器-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="../css/commn.css">
+    <link rel="stylesheet" href="../css/workbench.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="nav"></div>
+    
+    <div class="workbench">
+        <div>
+            <div class="left_box">
+                <div class="todo_things">
+                    <a href="./todo.html">
+                        <div  class="notice">
+                            <img src="../images/bag.gif" alt="">
+                            <span class="todo_thing"></span>
+                        </div>
+                        <h5>待办事宜</h5>
+                    </a>
+                </div>
+                <div class="give_apply">
+                    <a>
+                        <div class="notice">
+                            <img src="../images/give_apply.gif" alt="">
+                            <!--<span></span>-->
+                        </div>
+                        <h5>提交采购申请</h5>
+                    </a>
+                </div>
+                <div>
+                    <a href="./PurchasingApplication.html">
+                        <div class="notice">
+                            <img src="../images/bluework.gif" alt="">
+                            <span class="myPurchase"></span>
+                        </div>
+                        <h5>我的采购申请</h5>
+                    </a>
+                </div>
+                <div>
+                    <a href="./MyResearchReport.html">
+                        <div class="notice">
+                            <img src="../images/blueResearch.gif" alt="">
+                            <!--<span>11</span>-->
+                        </div>
+
+                        <h5>我的调研报告</h5>
+                    </a>
+                </div>
+                <div>
+                    <a href="./myPurchaseReport.html">
+                        <div class="notice">
+                            <img src="../images/blueProcurement.gif" alt="">
+                            <!--<span>11</span>-->
+                        </div>
+                        <h5>我的采购报告</h5>
+                    </a>
+
+                </div>
+                <div class="archives">
+                    <a>
+                        <div class="notice">
+                            <img src="../images/none_Archives.gif" alt="">
+                            <!--<span></span>-->
+                        </div>
+                        <h5>采购档案</h5>
+                    </a>
+                </div>
+
+                <!--下面展示的盒子-->
+                <div id="bottom_box">
+                    <h2>项目进度</h2>
+                    <table class="project_table">
+                        <tr>
+                            <th width="35%">项目名称</th>
+                            <th>进度</th>
+                            <th>当前执行者</th>
+                            <th>优先级</th>
+                            <th>更新时间</th>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="right_box">
+                <div class="todo">
+                    <!--<h2>待办事宜</h2>-->
+                    <!--<div class="ctrl">-->
+                        <!--<div>-->
+                            <!--<img src="../images/project.gif" alt="">-->
+                            <!--<p class="time">2018年5月10日  23:37:06</p>-->
+                        <!--</div>-->
+                        <!--<p class="decision">牛逼闪闪采购申请表 需要我的审批</p>-->
+                        <!--<button>处理</button>-->
+                    <!--</div>-->
+                    <!--<div class="ctrl">-->
+                        <!--<div>-->
+                            <!--<img src="../images/project.gif" alt="">-->
+                            <!--<p class="time">2018年5月10日  23:37:06</p>-->
+                        <!--</div>-->
+                        <!--<p class="decision">牛逼闪闪采购申请表 需要我的审批</p>-->
+                        <!--<button>处理</button>-->
+                    <!--</div>-->
+                    <!--<div class="ctrl">-->
+                        <!--<div>-->
+                            <!--<img src="../images/project.gif" alt="">-->
+                            <!--<p class="time">2018年5月10日  23:37:06</p>-->
+                        <!--</div>-->
+                        <!--<p class="decision">牛逼闪闪采购申请表 需要我的审批</p>-->
+                        <!--<button>处理</button>-->
+                    <!--</div>-->
+                    <!--<div class="ctrl">-->
+                        <!--<div>-->
+                            <!--<img src="../images/project.gif" alt="">-->
+                            <!--<p class="time">2018年5月10日  23:37:06</p>-->
+                        <!--</div>-->
+                        <!--<p class="decision">牛逼闪闪采购申请表 需要我的审批</p>-->
+                        <!--<button>处理</button>-->
+                    <!--</div>-->
+
+                </div>
+                <div class="new_dynamic">
+                    <!--<h2>最新动态</h2>-->
+                    <!--<div class="ctrl">-->
+                        <!--<div>-->
+                            <!--<img src="../images/project.gif" alt="">-->
+                            <!--<p class="time">2018年5月10日  23:37:06</p>-->
+                        <!--</div>-->
+                        <!--<p class="decision">牛逼闪闪采购申请表 需要我的审批</p>-->
+                        <!--<button>查看</button>-->
+                    <!--</div>-->
+                    <!--<button class="myBtn">更多</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--弹出框-->
+    <div class="bg_color">
+        <div class="alert_box">
+            <div class="alert_box_header">
+                <h2>修改密码</h2>
+                <img src="../images/close.gif" alt="" class="close">
+            </div>
+            <div class="alert_box_bottom">
+                <input type="password" placeholder="旧密码输入" class="oldPassword" maxlength="18" autocomplete="off" onfocus="this.type='password'">
+                <input type="password" placeholder="新密码输入" maxlength="18" class="myInput1" autocomplete="off" onfocus="this.type='password'">
+                <input type="password" placeholder="重复新密码" maxlength="18" class="input2" autocomplete="off" onfocus="this.type='password'">
+                <p>两次密码输入不一致</p>
+                <div class="btn_box">
+                    <button class="Confirm_change">确认修改</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--提示框-->
+    <div class="bg_notice">
+        <div class="alert_box_notice">
+            <h2>提示</h2>
+            <div class="show">
+                <div>
+                    <img src="../images/robot.png" alt="">
+                </div>
+                <div class="prompt">
+                    <img src="../images/colorLine.gif" alt="">
+                    <h3>温馨提示</h3>
+                    <p>您是第一次登录本系统为了您的账号安全，请设置密码</p>
+                    <p>（新密码不得与原密码相同）</p>
+                </div>
+                <div class="set_password">
+                    <input type="password" placeholder="新密码输入" class="psd">
+                    <input type="password"  placeholder="重复新密码" class="agin_psd">
+                    <p>两次密码输入不一致</p>
+                </div>
+                <button class="good">设置完毕</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="footer"></div>
+    <script src="../plugins/jquery.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/workbench.js"></script>
+    <script src="../js/caidan.js"></script>
+    <script src="../js/config/config.js"></script>
+</body>
+</html>

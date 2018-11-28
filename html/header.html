@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" href="../css/commn.css">
+		<link rel="stylesheet" href="../css/header.css">
+	</head>
+
+	<body>
+		<div class="myHeader">
+			<ul class="userName">
+				<li class="user">
+					<img src="../images/user.gif" alt="">
+				</li>
+				<li class="userId">
+					<span class="itemuserName"></span>&nbsp(<span class="roleName"></span>)
+					<img src="../images/down.png" alt="">
+					<ul class="two_meau">
+						<li class="Modify_password">
+							修改密码
+							<img src="../images/lock.gif" alt="">
+						</li>
+						<li class="logOff">
+							退出登录
+							<img src="../images/power.gif" alt="">
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!--<script src="../plugins/jquery.js"></script>-->
+		<script src="../js/header.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/plug-in.js"></script>
+		<script src="../js/config/config.js"></script>
+		<script>
+			$(".itemuserName").text($.cookie('userName'));
+			$(".roleName").text($.cookie('roleName'));
+			$(".logOff").click(function() {
+				$.cookie("isFirstLogin", null); //是否第一次登录
+				$.cookie("roleName", null); //角色名
+				$.cookie("userId", null); //用户id
+				$.cookie("userName", null); //用户名
+				$.cookie("userToken", null); //资源令牌
+				location.href = "login.html";
+			});
+			var a = $.cookie("userName");
+			var c_start = document.cookie.indexOf("userName=");
+			if(c_start == -1) {
+				window.location.href = "login.html"
+			}
+			if($(".itemuserName").text()=="null"){
+		        window.location.href = "login.html"
+		    };
+		</script>
+	</body>
+
+</html>

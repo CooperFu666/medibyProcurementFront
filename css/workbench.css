@@ -1,0 +1,352 @@
+body{
+    min-width: 1340px;
+}
+#nav{
+    height: 100%;
+    width: 11%;
+    min-width: 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+#footer{
+    z-index: 1;
+}
+.workbench{
+    margin-left: 11%;
+    width: 89%;
+    height: 88.5%;
+    float: left;
+    background-color: #f8f8f8;
+    overflow-y:auto;
+    overflow-x:auto;
+}
+.workbench>div{
+    padding: 16px;
+}
+.left_box{
+    width: 68.4%;
+    float: left;
+    margin-right: 16px;
+}
+.right_box{
+    width: 30.13%;
+    float: left;
+    height: auto;
+    /*outline: solid 1px red;*/
+}
+.left_box>div{
+    width: 15.1%;
+    height: 170px;
+    background-color: #ffffff;
+    float: left;
+    margin:0 1.85% 20px 0;
+}
+.left_box>div h5{
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+}
+.left_box div:nth-child(6){
+    margin: 0;
+}
+.notice{
+    width: 80px;
+    height: 80px;
+    margin:30px auto 24px auto ;
+    position: relative;
+    cursor: pointer;
+}
+.notice span{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #ee0021;
+    border-radius: 24px;
+    color: white;
+    text-align: center;
+    line-height: 24px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+#bottom_box{
+    width: 100%;
+    height: 560px;
+}
+#bottom_box h2{
+    height: 40px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 40px;
+    font-weight:bold;
+    text-indent: 17px;
+}
+.project_table{
+    width: 100%;
+}
+.project_table tr{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #ffffff;
+}
+.project_table tr:nth-child(1){
+    background-color: #eceef4;
+}
+.project_table tr img{
+    vertical-align: middle;
+}
+.project_table tr th{
+    font-size: 14px;
+}
+.project_table tr th:nth-child(1){
+    text-align: left;
+    text-indent: 17px;
+}
+.project_table tr td{
+    font-size: 12px;
+}
+.project_table tr td:nth-child(1){
+    text-indent: 17px;
+    text-align: left;
+    overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width: 340px;
+	display: inline-block;
+	height: 32px;
+	line-height: 48px;
+}
+.todo{
+    margin-bottom: 30px;
+    /*overflow: hidden;*/
+}
+.new_dynamic,.todo{
+    width: 100%;
+    height: 360px;
+    background-color: #ffffff;
+    color: #666666;
+    font-size: 12px;
+}
+.todo h2,.new_dynamic h2{
+    text-indent: 17px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 2px solid #eceef4;
+}
+.todo>div,.new_dynamic>div{
+    border-bottom: 1px solid #eceef4;
+    height: 66px;
+    padding-left: 17px;
+}
+.todo button,.new_dynamic button{
+    width: 80px;
+    height: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+.todo button:hover,.new_dynamic button:hover{
+    color: white;
+    background-color: #47a3fc;
+}
+.ctrl{
+    position: relative;
+}
+.ctrl>div{
+    width: 260px;
+    height: 40px;
+}
+.ctrl img,.time{
+    float: left;
+    line-height: 40px;
+}
+.ctrl img{
+    margin: 12px 10px 0 0 ;
+}
+.ctrl span{
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    margin: 5px;
+}
+.ctrl button{
+   position: absolute;
+   right:20px;
+   top:20px;
+}
+.decision{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    width: 350px;
+}
+.decision:hover{
+    color: #47a3fc;
+    cursor: pointer;
+}
+.myBtn{
+    display: block;
+    margin: 12px auto 0 auto;
+}
+
+/*修改密码弹出框*/
+.bg_color,.bg_notice{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0,0,0.5);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+.alert_box{
+    width: 510px;
+    height: 350px;
+    background-color: #ffffff;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.alert_box_header{
+    background-color: #688fe7;
+    text-indent: 10px;
+    height: 47px;
+    color: white;
+    font-size: 18px;
+    line-height: 47px;
+    position: relative;
+}
+.alert_box_header img{
+    position: absolute;
+    top:12px;
+    right: 10px;
+    cursor: pointer;
+}
+.alert_box_bottom{
+    padding: 50px 0 0 80px;
+    height: 190px;
+}
+.alert_box_bottom input{
+    width: 230px;
+    height: 30px;
+    border-radius: 30px;
+    text-indent: 23px;
+    margin-bottom: 20px;
+    background-color: #f7f6fb;
+}
+.alert_box_bottom button{
+    height: 32px;
+    width: 128px;
+    border-radius: 32px;
+    background-color: #688fe7;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+}
+.alert_box_bottom button:hover{
+    background-color: #81a8ff;
+}
+.btn_box button:nth-child(2){
+    height: 32px;
+    width: 78px;
+    margin-left: 20px;
+}
+
+
+/*提示弹出框*/
+.alert_box_notice{
+    width: 514px;
+    height: 417px;
+    background: #ffffff;
+    margin: auto;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.alert_box_notice h2{
+    background-color: #688fe7;
+    color: #ffffff;
+    font-size: 18px;
+    height: 46px;
+    line-height: 46px;
+    padding-left: 24px;
+}
+.alert_box_notice button{
+    width: 130px;
+    text-align: center;
+    height: 32px;
+    color: #ffffff;
+    background-color: #688fe7;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.show{
+    padding-left: 90px;
+    width: 320px;
+    overflow: hidden;
+}
+.show img{
+    display: block;
+    margin: 12px auto 0 auto;
+}
+.call_me{
+    margin: 38px 0 32px 0;
+}
+.prompt{
+    width: 320px;
+    height: 100px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    margin-bottom: 35px;
+}
+.prompt h3{
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #333333;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+}
+.prompt p:nth-child(3){
+    padding-top: 15px;
+}
+.prompt img{
+    margin: 0;
+}
+.prompt p{
+    text-indent: 13px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #666666;
+}
+.show div:nth-child(1){
+    overflow: hidden;
+    height: 55px;
+    margin-top: 18px;
+}
+.set_password input{
+    width: 210px;
+    height: 30px;
+    border-radius: 30px;
+    text-indent: 24px;
+    background-color: #f7f6fb;
+    margin-bottom: 18px;
+}
+.good:hover{
+    background-color: #81a8ff;
+}
+.alert_box_bottom p,.set_password p{
+    color: red;
+    display: none;
+}

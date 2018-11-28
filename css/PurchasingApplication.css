@@ -1,0 +1,305 @@
+body{
+    min-width: 1340px;
+}
+#nav{
+    height: 100%;
+    width: 11%;
+    min-width: 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+#footer{
+    z-index: 1;
+}
+.PurchasingApplication{
+    margin-left: 11%;
+    width: 89%;
+    height: 88.5%;
+    float: left;
+    background-color: #f8f8f8;
+    overflow-y:auto;
+    overflow-x:auto;
+}
+.PurchasingApplication>div{
+    padding: 20px;
+}
+.PurchasingApplication_box{
+    background-color: #fff;
+}
+.PurchasingApplication_box h2{
+    font-size: 16px;
+    font-weight: bold;
+    text-indent: 17px;
+    height: 50px;
+    line-height: 50px;
+}
+.skate{
+    height: 60px;
+    border-bottom: 1px solid #f0f0f0;
+    border-top: 1px solid #f0f0f0;
+}
+.screening{
+    height: 24px;
+    padding-top: 18px;
+}
+.screening li{
+    width: 80px;
+    height: 24px;
+    vertical-align: middle;
+    line-height: 24px;
+    border-radius: 24px;
+    background-color: #eef1f6;
+    float: left;
+    color: #909090;
+    font-size: 12px;
+    text-indent: 12px;
+    margin-right: 20px;
+    position: relative;
+
+}
+.screening li:nth-child(1){
+    background-color: #ffffff;
+    text-indent: 17px;
+    font-size: 14px;
+    color: #333333;
+}
+.screening li input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	opacity: 0;
+}
+.screening li label {
+	position: absolute;
+	left: 60px;
+	top: 5px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 1px solid #e1e1e1;
+	background: #fff;
+}
+.screening li input:checked+label {
+	background-color: rgb(96, 182, 255);
+	border: 1px solid rgb(96, 182, 255);
+}
+.screening li input:checked+label::after {
+	position: absolute;
+	content: "";
+	width: 3px;
+	height: 6px;
+	top: 2px;
+	left: 4px;
+	border: 1px solid #fff;
+	border-top: none;
+	border-left: none;
+	transform: rotate(45deg)
+}
+
+.PurchasingApplication_box div:nth-child(3){
+    height: 84px;
+}
+.check li{
+    float: left;
+    color: #666666;
+    font-size: 12px;
+}
+.check li:nth-child(1){
+    text-indent: 17px;
+    width: 190px;
+}
+.check li:nth-child(3),.check li:nth-child(2){
+    width: 220px;
+    position: relative;
+    margin-right: 30px;
+}
+.check li:nth-child(4){
+    width: 420px;
+}
+.check li:nth-child(3) input,.check li:nth-child(2) input{
+    width: 86px;
+    text-indent: 17px;
+}
+.check li:nth-child(3) button,.check li:nth-child(2) button{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.check li select,.check li input{
+    height: 22px;
+    border-radius: 5px;
+    color: #909090;
+    padding: 0;
+}
+.block div{
+	width: 100px !important;
+}
+.block input{
+	text-indent: 0 !important;
+}
+.check li select{
+    border: 1px solid #e0e0e0;
+}
+.check{
+    height: 24px;
+    padding-top: 30px;
+}
+
+.check li button{
+    height: 22px;
+    width: 40px;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle;
+    color: #909090;
+    padding: 0;
+}
+.check li button:hover{
+    color: #fff;
+    background-color: #47a3fc;
+}
+.Application_table tr,.Application_table_list tr{
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    color: #666;
+}
+.Application_table tr:nth-child(1){
+    background-color: #efefef;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+}
+.Application_table tr th:nth-child(1),.Application_table tr td:nth-child(1),.Application_table_list tr th:nth-child(1),.Application_table_list tr td:nth-child(1){
+    text-indent: 17px;
+    text-align: left;
+    overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width: 298px;
+	display: inline-block;
+	height: 40px;
+	line-height: 66px;
+}
+.Application_table tr img{
+    vertical-align: middle;
+}
+/*.Application_table tr td:nth-child(2),.Application_table tr td:nth-child(3),.Application_table tr td:nth-child(4){*/
+    /*color: #333;*/
+/*}*/
+.page{
+    background-color: #fff;
+    height: 54px;
+    text-indent: 18px;
+}
+.page p{
+    width: 50%;
+    height: 54px;
+    float: left;
+    line-height: 54px;
+    font-size: 12px;
+    color: #333;
+}
+.check_page button {
+    width: 80px;
+    height: 22px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.check_page button:hover{
+    background-color: #47a3fc;
+    color: #fff;
+}
+.write_page{
+    display: inline-block;
+}
+.write_page button{
+    width: 60px;
+}
+.write_page input{
+    width: 43px;
+    height: 22px;
+    border-radius: 5px;
+    text-align: center;
+}
+.check_page{
+    height: 54px;
+    float: left;
+    width: 50%;
+    color: #666;
+}
+.check_page>div{
+    vertical-align: middle;
+    width: 590px;
+    float: right;
+    padding-top: 14px;
+}
+.next{
+    margin: 0 20px 0 20px;
+}
+.write_page button{
+    margin-left: 13px;
+}
+.none_todo_box{
+    display: none;
+}
+.none_todo{
+    height: 450px;
+    overflow: hidden;
+}
+.none_todo img{
+    display: block;
+    margin: 100px auto 0 auto;
+}
+.none_todo h2{
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+/*没有采购记录*/
+.no_seen{
+    display: none;
+}
+.no_seen img{
+    display: block;
+    margin: auto;
+}
+.no_seen h3{
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+
+/*调整选择日期插件*/
+.el-date-editor input{
+    height: 26px;
+}
+.el-input__prefix,.el-input__suffix{
+    display: none;
+}
+.el-input--suffix .el-input__inner{
+    padding: 0;
+    text-indent: 16px;
+    height: 24px;
+    margin-top: 1px;
+}
+
+.active{
+    display: none;
+}
+
+
+.ver_price:hover{
+	background: #f4f3f3;
+}
+
+.bg_color{
+    display: none;
+}

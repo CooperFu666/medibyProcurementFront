@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>是否继续</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="../css/commn.css">
+    <link rel="stylesheet" href="../css/toContinue.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="nav"></div>
+
+
+
+    <div class="toContinue">
+            <div class="boxone">
+                <div id="progress">
+                    <h4>项目进度</h4>
+                    <table width="60%" style="text-align: center;margin: auto">
+                        <tr>
+                            <td>
+                                <img src="../images/blueAirport.gif" alt="">
+                                <h5>提交采购订单</h5>
+                            </td>
+                            <td>
+                                <hr>
+                            </td>
+                            <td>
+                                <img src="../images/blueClock.gif" alt="">
+                                <h5>调研</h5>
+                            </td>
+                            <td>
+                                <hr>
+                            </td>
+                            <td>
+                                <img src="../images/blueMoney.gif" alt="">
+                                <h5>定价</h5>
+                            </td>
+                            <td>
+                                <hr>
+                            </td>
+                            <td>
+                                <img src="../images/yellowCup.gif" alt="">
+                                <h5>采购</h5>
+                            </td>
+                            <td>
+                                <hr>
+                            </td>
+                            <td>
+                                <img src="../images/file.gif" alt="">
+                                <h5>归档</h5>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="margin-top: 20px; height: 310px;padding:0 20px 20px 19px">
+                    <div class="two-box">
+                        <h4>采购概况</h4>
+                        <div class="all-input">
+                            <div>
+
+                            </div>
+                            <img src="../images/Purchase .gif" alt="" style="margin-left: 0">
+                            <h5>采购项目名称：<span class="purchaseTitle"></span></h5>
+
+                            <img src="../images/num.gif" alt="">
+                            <h5>采购项目编号：<span class="purchaseItemNumber"></span></h5>
+
+                            <img src="../images/clock.gif" alt=""  style=" margin: 0.4% 0 0 16%;">
+                            <h5>采购截止时间:<span class="purchaseEndTime"></span></h5>
+
+
+                            <img src="../images/pople.gif" alt="">
+                            <h5>项目负责人:<span class=" purchasePrincipal"></span></h5>
+
+
+                            <h4 id="Remarks">采购原由/备注</h4>
+                            <div class="meg">
+                                <img src="../images/pople.gif" alt="">
+                                <h5>项目申请人:<span class="purchaseSubmitter"></span></h5>
+                                <img src="../images/book.gif" alt="">
+                                <h5>申请时间：<span class="purchaseSubmitterTime"></span></h5>
+                                <img src="../images/priority.jpg" alt="" style="margin-left: 60px;">
+                            	<h5>优先级：<span class="level">高</span></h5>
+                            </div>
+                            <div class="textarea"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="Research">
+                    <h4>调研报告</h4>
+                    <ul>
+                        <li>
+                            <img src="../images/line.gif" alt="">
+                            <h5>提交报告：<span class="researchSubmitter"></span></h5>
+                        </li>
+                        <li>
+                            <img src="../images/clock.gif" alt="">
+                            <h5>提交时间：<span class="researchTime"></span></h5>
+                        </li>
+                        <li>
+                            <button class="see_research">查看调研报告</button>
+                        </li>
+                    </ul>
+
+
+                </div>
+                <div class="Research" id="pricing">
+                    <div style="padding: 0 19px 0 19px">
+                        <h4 >采购结果</h4>
+                        <ul>
+                            <li>
+                                <img src="../images/shopcar.png" alt="" class="car" style="margin-left: 0">
+                                <h5>采购人：<span class="purchasePeople"></span></h5>
+                            </li>
+                            <li>
+                                <img src="../images/clock.gif" alt=""  style="margin-left: 0">
+                                <h5>提交时间：<span class="purchaseTime"></span></h5>
+                            </li>
+                        </ul>
+                        <div class="notes">
+                            <h5>采购备注</h5>
+                            <p class="purchaseResultDesc"></p>
+
+                        </div>
+                        <div class="myBtn">
+                            <button class="see_research">查看采购明细</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Submission">
+                <h5>实际采购量低于建议采购量，你可以选择重新选择调研环节或者直接归档</h5>
+                <div>
+                    <button class="Continue">继续</button>
+                    <button class="Reinvestigation">直接归档</button>
+                </div>
+            </div>
+
+
+        <div class="report_alert">
+            <div class="report_alert_box">
+                <div class="box_title">
+                    <h2>调研报告</h2>
+                    <img src="../images/fork.gif" alt="" class="fork">
+                </div>
+                <div class="box_table">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <span class="w_90">品牌</span>
+                                <span class="w_120">型号</span>
+                                <span class="w_150">中文名</span>
+                                <span class="w_108">英文名</span>
+                                <span class="w_72">数量</span>
+                                <span class="w_92">规格/包装</span>
+                                <span class="w_74">注册证</span>
+                            </td>
+                            <td class="typeNickname">
+
+                            </td>
+                            <td>
+                                <span class="w_280">目标采购价</span>
+                            </td>
+
+                            <td>
+                                <span class="w_140">建议采购及数量</span>
+                            </td>
+                            <td>
+                                <span style="width: 560px;">实际采购量</span>
+                            </td>
+                        </tr>
+                        <table class="box_list">
+
+                        </table>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box_operate">
+                    <button class="fork">关闭</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../plugins/jquery.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/plug-in.js"></script>
+    <script src="../js/toContinue.js"></script>
+	<script src="../js/config/config.js"></script>
+</body>
+</html>

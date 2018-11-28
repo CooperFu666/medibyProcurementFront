@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最新动态</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="../css/commn.css">
+    <link rel="stylesheet" href="../css/newDynamic.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="nav"></div>
+    <div class="newDynamic">
+        <div id="bottom_box">
+            <h2>最新动态</h2>
+            <table class="project_table" width="100%">
+                <!--<tr>-->
+                    <!--<th width="25%">项目名称</th>-->
+                    <!--<th>时间</th>-->
+                    <!--<th width="12%">操作</th>-->
+                <!--</tr>-->
+
+                <!--隐藏没有记录时显示部分-->
+                <!--<tr class="none_todo_box">-->
+                    <!--<td colspan="3">-->
+                        <!--<div class="none_todo">-->
+                            <!--<img src="../images/newDynamic.gif" alt="">-->
+                            <!--<h2>没有更多动态...</h2>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
+
+
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<img src="../images/project.gif" alt="">-->
+                        <!--<span>日本奥林巴斯采购计划</span>-->
+                        <!--<span>（项目编号007）</span>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--2018年5月10日  23:37:06-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<button>查看</button>-->
+                    <!--</td>-->
+
+                <!--</tr>-->
+
+            </table>
+            <div class="page">
+                <p>总计<span class="totalRecord"></span> 个记录      分为 <span class="pageNum"></span> 页  ，每页最多<span class="pageSize"></span>个记录</p>
+                <div class="check_page">
+                    <div>
+                        <button class="pre_page">上一页</button>
+                        <button class="next_page">下一页</button>
+                        <div class="write_page">
+                            <span  style="display: inline-block;margin-right: 13px">共<span class="pageNum"></span>页</span>
+                            <span>跳转到</span>
+                            <input type="text" value="1" maxlength="4" class="write_number">
+                            <span>页</span>
+                            <button class="sure_local">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="change_password"></div>
+    <div id="footer"></div>
+    <script src="../plugins/jquery.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/plug-in.js"></script>
+    <script src="../js/newDynamic.js"></script>
+    <script src="../js/config/config.js"></script>
+</body>
+</html>
